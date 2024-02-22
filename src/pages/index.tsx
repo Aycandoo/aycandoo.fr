@@ -1,14 +1,15 @@
-import React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import type { HeadFC, PageProps } from "gatsby";
+import React from "react";
+import "../styles/global.css";
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <main>
-      Hello world !!!
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
     </main>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <title>Home Page</title>;
