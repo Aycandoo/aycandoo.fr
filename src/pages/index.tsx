@@ -1,6 +1,7 @@
-import type { HeadFC, PageProps } from "gatsby";
-import React from "react";
-import "../styles/global.css";
+import type { HeadFC, PageProps } from 'gatsby';
+import React from 'react';
+import Seo from '../structure/seo';
+import '../styles/global.css';
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -12,10 +13,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => (
-  <>
-    <title>Home Page</title>;
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-  </>
-);
-  
+export const Head: HeadFC = () => <Seo title="Home Page"></Seo>;
