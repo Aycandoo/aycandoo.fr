@@ -14,6 +14,30 @@ const config: GatsbyConfig = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Aycandoo`,
+        short_name: `Aycandoo`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#f4de71`,
+        display: `standalone`,
+        icon: `src/images/icon.png`,
+        icons: [
+          {
+            src: `src/images/favicons/android-icon.png`,
+            sizes: `196x196`,
+            type: `image/png`,
+          },
+          {
+            src: `src/images/favicons/iphone-icon.png`,
+            sizes: `180x180`,
+            type: `image/png`,
+          },
+        ],
+      },
+    },
   ],
 };
 
