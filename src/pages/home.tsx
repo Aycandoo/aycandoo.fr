@@ -16,7 +16,7 @@ export default function Home() {
           }}
         />
       </div>
-      <div className="mx-auto max-w-screen-xl py-32 sm:py-48 lg:py-56">
+      <div className="mx-auto max-w-screen-xl py-16 sm:py-24 lg:py-32">
         <div className="text-start">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
             <div className="flex-column lg:flex relative align-middle justify-start leading-tight" >
