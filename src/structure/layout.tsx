@@ -10,7 +10,7 @@ const Layout: FC<LayoutParams> = ({ children }) => {
   return (
     <>
       <Header></Header>
-      <main className="relative px-6 pt-20 lg:px-8">{children}</main>
+      <main className="relative">{children}</main>
       <Footer></Footer>
     </>
   );

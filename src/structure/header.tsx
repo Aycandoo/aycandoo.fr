@@ -5,9 +5,9 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 const navigation = [
-  { name: "L'équipe", href: '#' },
-  { name: 'Contact', href: '#' },
-  { name: 'Blog', href: '#' },
+  { name: 'L\'équipe', href: '' },
+  { name: 'Contact', href: '' },
+  { name: 'Blog', href: '' },
 ];
 
 const Header: FC = () => {
@@ -23,7 +23,7 @@ const Header: FC = () => {
   `);
 
   return (
-    <header className="bg-black absolute inset-x-0 top-0 z-50">
+    <header className="sticky inset-x-0 top-0 z-50 bg-gray-950">
       <nav
         className="flex items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -80,9 +80,7 @@ const Header: FC = () => {
                 src="../images/aycandoo-black-logo.svg"
                 alt=""
               />
-              <span className="sr-only">
-                {data?.site?.siteMetadata?.title}
-              </span>
+              <span className="sr-only">{data?.site?.siteMetadata?.title}</span>
             </a>
             <button
               type="button"
