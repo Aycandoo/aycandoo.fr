@@ -8,8 +8,8 @@ import React from 'react';
 import Customer from '../shared/customer';
 import CustomersList from '../shared/customers-list';
 import Offering from '../shared/offering';
-import './home.css';
 import OfferingsList from '../shared/offerings-list';
+import './home.css';
 
 export default function Home() {
   return (
@@ -97,69 +97,64 @@ export default function Home() {
           massa, varius a, semper congue, euismod non, mi.
         </Offering>
       </OfferingsList>
-      <section className="mt-48 flex flex-col items-center justify-center gap-4 px-6 lg:px-8">
-        <h2 className="text-center text-4xl font-bold tracking-tight text-gray-900">
-          Ils nous ont fait confiance
-        </h2>
-        <CustomersList>
-          <Customer name="Lexis Nexis">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/lexisnexis.svg"
-              height={40}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Société Générale">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/sg.svg"
-              height={40}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Voluntis">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/voluntis.svg"
-              height={40}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Sede Veolia">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/sede-veolia.png"
-              height={40}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Colonna Facility">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/colonna-facility.png"
-              height={60}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Proximy">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/proximy.png"
-              height={40}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Ministère de l’Education Nationale">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/ministere-education-nationale-jeunesse.svg"
-              height={90}
-              alt=""
-            />
-          </Customer>
-        </CustomersList>
-      </section>
+      <CustomersList>
+        <Customer name="Lexis Nexis">
+          <StaticImage
+            className="opacity-50 grayscale"
+            src="../images/customers-icons/lexisnexis.svg"
+            height={40}
+            alt=""
+          />
+        </Customer>
+        <Customer name="Société Générale">
+          <StaticImage
+            className="opacity-50 grayscale"
+            src="../images/customers-icons/sg.svg"
+            height={40}
+            alt=""
+          />
+        </Customer>
+        <Customer name="Voluntis">
+          <StaticImage
+            className="opacity-50 grayscale"
+            src="../images/customers-icons/voluntis.svg"
+            height={40}
+            alt=""
+          />
+        </Customer>
+        <Customer name="Sede Veolia">
+          <StaticImage
+            className="opacity-50 grayscale"
+            src="../images/customers-icons/sede-veolia.png"
+            height={40}
+            alt=""
+          />
+        </Customer>
+        <Customer name="Colonna Facility">
+          <StaticImage
+            className="opacity-50 grayscale"
+            src="../images/customers-icons/colonna-facility.png"
+            height={60}
+            alt=""
+          />
+        </Customer>
+        <Customer name="Proximy">
+          <StaticImage
+            className="opacity-50 grayscale"
+            src="../images/customers-icons/proximy.png"
+            height={40}
+            alt=""
+          />
+        </Customer>
+        <Customer name="Ministère de l’Education Nationale">
+          <StaticImage
+            className="opacity-50 grayscale"
+            src="../images/customers-icons/ministere-education-nationale-jeunesse.svg"
+            height={90}
+            alt=""
+          />
+        </Customer>
+      </CustomersList>
     </div>
   );
 }
