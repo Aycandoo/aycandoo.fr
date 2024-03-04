@@ -7,8 +7,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Customer from '../shared/customer';
 import CustomersList from '../shared/customers-list';
-import ServiceItem from '../shared/service-item';
+import Offering from '../shared/offering';
 import './home.css';
+import OfferingsList from '../shared/offerings-list';
 
 export default function Home() {
   return (
@@ -66,46 +67,36 @@ export default function Home() {
           />
         </div>
       </div>
-      <section className="flex w-full flex-col items-center gap-4 bg-gray-50 px-6 py-8 lg:px-8">
-        <h2 className="text-center text-4xl  font-bold tracking-tight text-gray-900">
-          Des services adaptés à vos besoins
-        </h2>
-        <ul className="grid grid-cols-1 gap-12 px-8 py-12 lg:grid-cols-3">
-          <li>
-            <ServiceItem
-              icon={<ChatBubbleLeftEllipsisIcon className="h-12 w-12" />}
-              title="Conseil IT"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-              risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-              nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-              ligula massa, varius a, semper congue, euismod non, mi.
-            </ServiceItem>
-          </li>
-          <li>
-            <ServiceItem
-              icon={<CodeBracketIcon className="h-12 w-12" />}
-              title="Développement"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-              risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-              nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-              ligula massa, varius a, semper congue, euismod non, mi.
-            </ServiceItem>
-          </li>
-          <li>
-            <ServiceItem
-              icon={<Square3Stack3DIcon className="h-12 w-12" />}
-              title="Hébergement"
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-              risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-              nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-              ligula massa, varius a, semper congue, euismod non, mi.
-            </ServiceItem>
-          </li>
-        </ul>
-      </section>
+      <OfferingsList>
+        <Offering
+          icon={<ChatBubbleLeftEllipsisIcon className="h-12 w-12" />}
+          title="Conseil IT"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+          risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
+          ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
+          massa, varius a, semper congue, euismod non, mi.
+        </Offering>
+        <Offering
+          icon={<CodeBracketIcon className="h-12 w-12" />}
+          title="Développement"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+          risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
+          ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
+          massa, varius a, semper congue, euismod non, mi.
+        </Offering>
+
+        <Offering
+          icon={<Square3Stack3DIcon className="h-12 w-12" />}
+          title="Hébergement"
+        >
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+          risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
+          ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
+          massa, varius a, semper congue, euismod non, mi.
+        </Offering>
+      </OfferingsList>
       <section className="mt-48 flex flex-col items-center justify-center gap-4 px-6 lg:px-8">
         <h2 className="text-center text-4xl font-bold tracking-tight text-gray-900">
           Ils nous ont fait confiance
