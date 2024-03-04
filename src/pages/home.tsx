@@ -10,6 +10,7 @@ import CustomersList from '../shared/customers-list';
 import Offering from '../shared/offering';
 import OfferingsList from '../shared/offerings-list';
 import './home.css';
+import Section from '../structure/section';
 
 export default function Home() {
   return (
@@ -67,94 +68,102 @@ export default function Home() {
           />
         </div>
       </div>
-      <OfferingsList>
-        <Offering
-          icon={<ChatBubbleLeftEllipsisIcon className="h-12 w-12" />}
-          title="Conseil IT"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-          risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-          ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
-          massa, varius a, semper congue, euismod non, mi.
-        </Offering>
-        <Offering
-          icon={<CodeBracketIcon className="h-12 w-12" />}
-          title="Développement"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-          risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-          ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
-          massa, varius a, semper congue, euismod non, mi.
-        </Offering>
+      <Section
+        id="offerings"
+        title="Des services adaptés à vos besoins"
+        className="bg-gray-50"
+      >
+        <OfferingsList>
+          <Offering
+            icon={<ChatBubbleLeftEllipsisIcon className="h-12 w-12" />}
+            title="Conseil IT"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
+            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
+            ligula massa, varius a, semper congue, euismod non, mi.
+          </Offering>
+          <Offering
+            icon={<CodeBracketIcon className="h-12 w-12" />}
+            title="Développement"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
+            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
+            ligula massa, varius a, semper congue, euismod non, mi.
+          </Offering>
 
-        <Offering
-          icon={<Square3Stack3DIcon className="h-12 w-12" />}
-          title="Hébergement"
-        >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-          risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec,
-          ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula
-          massa, varius a, semper congue, euismod non, mi.
-        </Offering>
-      </OfferingsList>
-      <CustomersList>
-        <Customer name="Lexis Nexis">
-          <StaticImage
-            className="opacity-50 grayscale"
-            src="../images/customers-icons/lexisnexis.svg"
-            height={40}
-            alt=""
-          />
-        </Customer>
-        <Customer name="Société Générale">
-          <StaticImage
-            className="opacity-50 grayscale"
-            src="../images/customers-icons/sg.svg"
-            height={40}
-            alt=""
-          />
-        </Customer>
-        <Customer name="Voluntis">
-          <StaticImage
-            className="opacity-50 grayscale"
-            src="../images/customers-icons/voluntis.svg"
-            height={40}
-            alt=""
-          />
-        </Customer>
-        <Customer name="Sede Veolia">
-          <StaticImage
-            className="opacity-50 grayscale"
-            src="../images/customers-icons/sede-veolia.png"
-            height={40}
-            alt=""
-          />
-        </Customer>
-        <Customer name="Colonna Facility">
-          <StaticImage
-            className="opacity-50 grayscale"
-            src="../images/customers-icons/colonna-facility.png"
-            height={60}
-            alt=""
-          />
-        </Customer>
-        <Customer name="Proximy">
-          <StaticImage
-            className="opacity-50 grayscale"
-            src="../images/customers-icons/proximy.png"
-            height={40}
-            alt=""
-          />
-        </Customer>
-        <Customer name="Ministère de l’Education Nationale">
-          <StaticImage
-            className="opacity-50 grayscale"
-            src="../images/customers-icons/ministere-education-nationale-jeunesse.svg"
-            height={90}
-            alt=""
-          />
-        </Customer>
-      </CustomersList>
+          <Offering
+            icon={<Square3Stack3DIcon className="h-12 w-12" />}
+            title="Hébergement"
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
+            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
+            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
+            ligula massa, varius a, semper congue, euismod non, mi.
+          </Offering>
+        </OfferingsList>
+      </Section>
+      <Section id="customers" title="Ils nous ont fait confiance">
+        <CustomersList>
+          <Customer name="Lexis Nexis">
+            <StaticImage
+              className="opacity-50 grayscale"
+              src="../images/customers-icons/lexisnexis.svg"
+              height={40}
+              alt=""
+            />
+          </Customer>
+          <Customer name="Société Générale">
+            <StaticImage
+              className="opacity-50 grayscale"
+              src="../images/customers-icons/sg.svg"
+              height={40}
+              alt=""
+            />
+          </Customer>
+          <Customer name="Voluntis">
+            <StaticImage
+              className="opacity-50 grayscale"
+              src="../images/customers-icons/voluntis.svg"
+              height={40}
+              alt=""
+            />
+          </Customer>
+          <Customer name="Sede Veolia">
+            <StaticImage
+              className="opacity-50 grayscale"
+              src="../images/customers-icons/sede-veolia.png"
+              height={40}
+              alt=""
+            />
+          </Customer>
+          <Customer name="Colonna Facility">
+            <StaticImage
+              className="opacity-50 grayscale"
+              src="../images/customers-icons/colonna-facility.png"
+              height={60}
+              alt=""
+            />
+          </Customer>
+          <Customer name="Proximy">
+            <StaticImage
+              className="opacity-50 grayscale"
+              src="../images/customers-icons/proximy.png"
+              height={40}
+              alt=""
+            />
+          </Customer>
+          <Customer name="Ministère de l’Education Nationale">
+            <StaticImage
+              className="opacity-50 grayscale"
+              src="../images/customers-icons/ministere-education-nationale-jeunesse.svg"
+              height={90}
+              alt=""
+            />
+          </Customer>
+        </CustomersList>
+      </Section>
     </div>
   );
 }
