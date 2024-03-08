@@ -11,6 +11,7 @@ import Offering from '../shared/offering';
 import OfferingsList from '../shared/offerings-list';
 import './home.css';
 import Section from '../structure/section';
+import Team from '../shared/team';
 
 export default function Home() {
   return (
@@ -104,7 +105,10 @@ export default function Home() {
           </Offering>
         </OfferingsList>
       </Section>
-      <Section id="customers" title="Ils nous ont fait confiance">
+      <Section id="team" title="Une équipe experimenté à votre écoute">
+        <Team></Team>
+      </Section>
+      <Section id="customers" title="Références de notre équipe">
         <CustomersList>
           <Customer name="Lexis Nexis">
             <StaticImage
