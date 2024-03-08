@@ -5,6 +5,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React, { FC, useState } from 'react';
 
 const navigation = [
+  { name: 'Accueil', to: '/' },
   { name: 'Services', to: '/#offerings' },
   { name: "L'équipe", to: '/#team' },
   { name: 'Contact', to: '/' },
@@ -30,7 +31,7 @@ const Header: FC = () => {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
+          <Link to="/" className="-m-1.5 p-1.5">
             <div className="flex items-center">
               <StaticImage
                 className=""
@@ -40,7 +41,7 @@ const Header: FC = () => {
               />
               <span className="sr-only">{data?.site?.siteMetadata?.title}</span>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -67,7 +68,7 @@ const Header: FC = () => {
 
       <Dialog
         as="div"
-        className="lg:hidden"
+        className="lg:hidden" 
         open={isMobileMenuOpen}
         onClose={setIsMobileMenuOpen}
       >
