@@ -8,8 +8,8 @@ const navigation = [
   { name: 'Accueil', to: '/' },
   { name: 'Services', to: '/#offerings' },
   { name: "L'équipe", to: '/#team' },
-  { name: 'Contact', to: '/' },
-  { name: 'Blog', to: '/' },
+  { name: 'Contact', to: '/contact' },
+  // { name: 'Blog', to: '/' }, // <-- to reactivate later
 ];
 
 const Header: FC = () => {
