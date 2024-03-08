@@ -7,11 +7,13 @@ type TeammateParams = PropsWithChildren<{
 
 const Teammate: FC<TeammateParams> = ({ name, description, children }) => {
   return (
-    <li className="flex gap-6 items-center">
+    <li className="flex flex-col items-center gap-6 grayscale hover:grayscale-0 sm:flex-row">
       <div>{children}</div>
-      <div className="flex flex-col gap-6 max-w-sm">
-        <p className='text-2xl font-semibold'>{name}</p>
-        <p>{description}</p>
+      <div className="flex max-w-sm flex-col gap-6">
+        <p className="text-center text-2xl font-semibold sm:text-left">
+          {name}
+        </p>
+        <p className="text-justify">{description}</p>
       </div>
     </li>
   );
