@@ -46,10 +46,12 @@ export default function Home() {
             </h1>
             <p className="font-semibold">[*I can do : je peux faire]</p>
             <p className="mt-6 text-xl leading-8 text-gray-600">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-              risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-              nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-              ligula massa, varius a, semper congue, euismod non, mi.
+              Fondée par deux développeurs fullstack chevronnés, Aycandoo est
+              spécialisée dans le conseil IT, offrant des solutions sur mesure
+              pour répondre aux besoins uniques de nos clients. Que ce soit pour
+              des missions longues ou le développement complet de projets web,
+              notre équipe est là pour vous accompagner à chaque étape du
+              processus.
             </p>
           </div>
         </div>
@@ -76,29 +78,35 @@ export default function Home() {
             icon={<ChatBubbleLeftEllipsisIcon className="h-12 w-12" />}
             title="Conseil IT"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-            ligula massa, varius a, semper congue, euismod non, mi.
+            Découvrez nos services de conseil IT chez Aycandoo, conçus pour
+            répondre à vos besoins les plus spécifiques. Notre équipe vous
+            accompagne dans la définition de vos stratégies technologiques,
+            l'optimisation de vos infrastructures et la résolution de vos défis
+            informatiques les plus complexes. Nous vous aidons à tirer le
+            meilleur parti de vos investissements technologiques et à atteindre
+            vos objectifs métier avec succès.
           </Offering>
           <Offering
             icon={<CodeBracketIcon className="h-12 w-12" />}
             title="Développement"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-            ligula massa, varius a, semper congue, euismod non, mi.
+            Découvrez le potentiel illimité de vos idées avec notre service de
+            développement chez Aycandoo. Nos développeurs fullstack expérimentés
+            mettent en œuvre des solutions novatrices, du concept à la
+            réalisation, assurant des projets web et mobiles qui dépassent vos
+            attentes.
           </Offering>
 
           <Offering
             icon={<Square3Stack3DIcon className="h-12 w-12" />}
             title="Hébergement"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-            ligula massa, varius a, semper congue, euismod non, mi.
+            Confiez la gestion de votre infrastructure à Aycandoo, votre
+            partenaire d'hébergement fiable. Nous offrons des services
+            d'hébergement robustes pour assurer la disponibilité constante de
+            vos applications. Avec une infrastructure sécurisée et évolutive,
+            nous nous engageons à fournir un environnement optimal pour assurer
+            la performance de vos projets.
           </Offering>
         </OfferingsList>
       </Section>
