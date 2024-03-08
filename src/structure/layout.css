@@ -1,0 +1,8 @@
+:root {
+  --headerH: 88px;
+  --footerH: 208px;
+}
+
+main {
+  min-height: calc(100vh - (var(--headerH) + var(--footerH)));
+}

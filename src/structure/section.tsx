@@ -8,7 +8,7 @@ export type SectionParams = PropsWithChildren<{
 
 const Section: FC<SectionParams> = ({ id, title, className, children }) => {
   const [classList, setClassList] = useState(
-    'mb-48 last:mb-0 flex w-full scroll-mt-24 flex-col items-center gap-4 px-6 py-8 lg:px-8'
+    'mb-48 flex w-full scroll-mt-24 flex-col items-center gap-4 px-6 py-8 lg:px-8'
   );
 
   useEffect(() => {
