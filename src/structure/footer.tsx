@@ -8,7 +8,7 @@ const Footer = () => {
         <h2 className="text-center text-xl font-bold text-white">
           Une question? Un projet?
         </h2>
-        <Link to="" className="color-primary text-base font-bold hover:underline">
+        <Link to="/contact" className="color-primary text-base font-bold hover:underline">
           Contacter nous
         </Link>
       </div>
