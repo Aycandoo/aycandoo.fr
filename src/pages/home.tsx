@@ -3,15 +3,12 @@ import {
   CodeBracketIcon,
   Square3Stack3DIcon,
 } from '@heroicons/react/24/outline';
-import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import Customer from '../shared/customer';
-import CustomersList from '../shared/customers-list';
 import Offering from '../shared/offering';
 import OfferingsList from '../shared/offerings-list';
-import './home.css';
-import Section from '../structure/section';
 import Team from '../shared/team';
+import Section from '../structure/section';
+import './home.css';
 
 export default function Home() {
   return (
@@ -107,66 +104,6 @@ export default function Home() {
       </Section>
       <Section id="team" title="Une équipe experimenté à votre écoute">
         <Team></Team>
-      </Section>
-      <Section id="customers" title="Références de notre équipe">
-        <CustomersList>
-          <Customer name="Lexis Nexis">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/lexisnexis.svg"
-              height={40}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Société Générale">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/sg.svg"
-              height={40}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Voluntis">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/voluntis.svg"
-              height={40}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Sede Veolia">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/sede-veolia.png"
-              height={40}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Colonna Facility">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/colonna-facility.png"
-              height={60}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Proximy">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/proximy.png"
-              height={40}
-              alt=""
-            />
-          </Customer>
-          <Customer name="Ministère de l’Education Nationale">
-            <StaticImage
-              className="opacity-50 grayscale"
-              src="../images/customers-icons/ministere-education-nationale-jeunesse.svg"
-              height={90}
-              alt=""
-            />
-          </Customer>
-        </CustomersList>
       </Section>
     </div>
   );
