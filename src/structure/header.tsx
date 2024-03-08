@@ -5,7 +5,8 @@ import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 
 const navigation = [
-  { name: 'L\'équipe', href: '' },
+  { name: 'Services', href: '#offerings' },
+  { name: 'L\'équipe', href: '#team' },
   { name: 'Contact', href: '' },
   { name: 'Blog', href: '' },
 ];
