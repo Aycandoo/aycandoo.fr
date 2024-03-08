@@ -13,7 +13,7 @@ const Offering: FC<OfferingParams> = ({ icon, title, children }) => {
           {icon}
           <h3 className="text-xl font-bold">{title}</h3>
         </div>
-        <p className="text-center text-gray-700">{children}</p>
+        <p className="text-justify text-gray-700">{children}</p>
       </div>
     </li>
   );

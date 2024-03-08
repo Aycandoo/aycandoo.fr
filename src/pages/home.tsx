@@ -45,7 +45,7 @@ export default function Home() {
               </div>
             </h1>
             <p className="font-semibold">[*I can do : je peux faire]</p>
-            <p className="mt-6 text-xl leading-8 text-gray-600">
+            <p className="mt-6 text-xl text-justify leading-8 text-gray-600">
               Fondée par deux développeurs fullstack chevronnés, Aycandoo est
               spécialisée dans le conseil IT, offrant des solutions sur mesure
               pour répondre aux besoins uniques de nos clients. Que ce soit pour
