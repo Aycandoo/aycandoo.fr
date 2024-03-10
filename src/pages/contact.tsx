@@ -1,7 +1,7 @@
 import { HeadFC } from 'gatsby';
 import React, { FormEvent, useRef, useState } from 'react';
-import { useUniqueIds } from '../hooks/useUniqueIds';
-import useValidation from '../hooks/useValidation';
+import useUniqueIds from '../hooks/use-unique-ids';
+import useValidation from '../hooks/use-validation';
 import ErrorContainer from '../shared/error-container';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
