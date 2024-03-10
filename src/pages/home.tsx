@@ -29,9 +29,11 @@ export default function Home() {
         <div className="mx-auto max-w-screen-xl py-16 sm:py-24 lg:py-32">
           <div className="text-start">
             <h1 className="text-6xl font-bold tracking-tight text-gray-900 lg:text-8xl">
-              <div className="relative flex flex-col justify-start align-middle leading-tight lg:flex-row">
-                <span>AYCANDOO*</span>
-                <div className="carousel-container pr-6 lg:ml-4">
+              <div className="relative flex flex-col justify-start align-middle leading-tight md:flex-row">
+                <span>
+                  AYCANDOO<span aria-hidden="true">*</span>
+                </span>
+                <div className="carousel-container pr-6 md:ml-4">
                   <ul>
                     <li>web apps</li>
                     <li>mobile apps</li>
@@ -44,8 +46,10 @@ export default function Home() {
                 </div>
               </div>
             </h1>
-            <p className="font-semibold">[*I can do : je peux faire]</p>
-            <p className="mt-6 text-xl text-justify leading-8 text-gray-600">
+            <p className="font-semibold">
+              [<span aria-hidden="true">*</span>I can do : je peux faire]
+            </p>
+            <p className="mt-6 text-justify text-xl leading-8 text-gray-600">
               Fondée par deux développeurs fullstack chevronnés, Aycandoo est
               spécialisée dans le conseil IT, offrant des solutions sur mesure
               pour répondre aux besoins uniques de nos clients. Que ce soit pour
