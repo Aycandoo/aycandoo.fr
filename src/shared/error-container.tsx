@@ -1,4 +1,5 @@
 import React, { FC, PropsWithChildren } from 'react';
+import './error-container.css';
 
 type ErrorContainerParams = PropsWithChildren<{
   errorMessage: string | null;
@@ -16,7 +17,7 @@ const ErrorContainer: FC<ErrorContainerParams> = ({
     <div className={showError && errorMessage ? 'error' : ''}>
       {children}
       {showError && errorMessage && (
-        <div className="error-wrapper">
+        <div className="py-2 text-sm font-light text-red-600">
           <span id={errorId}>{errorMessage}</span>
         </div>
       )}
