@@ -4,14 +4,14 @@
   "private": true,
   "description": "Backend API for aycandoo.fr",
   "author": "Jérémy Brochard",
-  "main": "app.ts",
+  "main": "./src/app.ts",
   "scripts": {
-    "start": "ts-node src/app.ts"
+    "start": "ts-node src/app.ts",
+    "build": ""
   },
   "dependencies": {
     "express": "^4.18.3",
-    "express-validator": "^7.0.1",
-    "node-fetch": "^3.3.2"
+    "express-validator": "^7.0.1"
   },
   "engines": {
     "node": ">=20"
