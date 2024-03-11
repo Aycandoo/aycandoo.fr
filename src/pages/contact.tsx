@@ -6,7 +6,7 @@ import ErrorContainer from '../shared/error-container';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
 import Seo from '../structure/seo';
-import { validateNonEmptyField } from '../utils/validators';
+import { validateEmail, validateNonEmptyField } from '../utils/validators';
 
 const Contact = () => {
   const [
@@ -46,7 +46,7 @@ const Contact = () => {
   const [emailError, emailErrorProps] = useValidation({
     isRequired: true,
     errorId: emailErrorId,
-    validateFn: validateNonEmptyField,
+    validateFn: validateEmail,
     value: formState.email,
     showError: hasFormBeingSubmitted,
   });
