@@ -14,3 +14,9 @@ export const validateEmail: ValidationFn = (value: string): string | null => {
     ? null
     : 'Vous devez rensigner une adresse email valide (ex: mon-adresse@domaine.fr).';
 };
+
+export const validateRecaptcha: ValidationFn = (
+  value: string
+): string | null => {
+  return value ? null : 'Vous devez cocher cette case.';
+};

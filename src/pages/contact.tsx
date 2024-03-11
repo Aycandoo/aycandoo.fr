@@ -1,12 +1,25 @@
 import { HeadFC } from 'gatsby';
 import React, { FormEvent, useRef, useState } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 import useUniqueIds from '../hooks/use-unique-ids';
 import useValidation from '../hooks/use-validation';
 import ErrorContainer from '../shared/error-container';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
 import Seo from '../structure/seo';
-import { validateEmail, validateNonEmptyField } from '../utils/validators';
+import {
+  validateEmail,
+  validateNonEmptyField,
+  validateRecaptcha,
+} from '../utils/validators';
+
+interface ContactForm {
+  firstname: string;
+  lastname: string;
+  email: string;
+  message: string;
+  recaptchaToken: string;
+}
 
 const Contact = () => {
   const [
@@ -18,14 +31,16 @@ const Contact = () => {
     emailErrorId,
     messageId,
     messageErrorId,
-  ] = useUniqueIds(8);
+    recaptchaErrorId,
+  ] = useUniqueIds(9);
   const [hasFormBeingSubmitted, setHasFormBeingSubmitted] = useState(false);
   const [formState, setFormState] = useState({
     firstname: '',
     lastname: '',
     email: '',
     message: '',
-  });
+    recaptchaToken: '',
+  } as ContactForm);
 
   const [firstNameError, firstNameErrorProps] = useValidation({
     isRequired: true,
@@ -59,10 +74,19 @@ const Contact = () => {
     showError: hasFormBeingSubmitted,
   });
 
+  const [recaptchaError, recaptchaErrorProps] = useValidation({
+    isRequired: true,
+    errorId: recaptchaErrorId,
+    validateFn: validateRecaptcha,
+    value: formState.recaptchaToken,
+    showError: hasFormBeingSubmitted,
+  });
+
   const firstnameRef = useRef(null as HTMLElement | null);
   const lastnameRef = useRef(null as HTMLElement | null);
   const emailRef = useRef(null as HTMLElement | null);
   const messageRef = useRef(null as HTMLElement | null);
+  const recaptchaRef = useRef(null as ReCAPTCHA | null);
 
   const onFormValueChange = (event: any) => {
     if (!formState) {
@@ -74,11 +98,29 @@ const Contact = () => {
     });
   };
 
-  const submitForm = (event: FormEvent) => {
+  const onRecaptchaValueChange = (token: string | null) => {
+    if (!formState) {
+      return;
+    }
+    setFormState({
+      ...formState,
+      recaptchaToken: token ? token : '',
+    });
+  };
+
+  const submitForm = async (event: FormEvent) => {
     event.preventDefault();
     setHasFormBeingSubmitted(true);
 
-    if (firstNameError || lastNameError || emailError || messageError) {
+    // const recaptchaToken = await recaptchaRef.current?.getValue();
+
+    if (
+      firstNameError ||
+      lastNameError ||
+      emailError ||
+      messageError ||
+      recaptchaError
+    ) {
       if (firstNameError) {
         firstnameRef.current?.focus();
         return;
@@ -98,6 +140,7 @@ const Contact = () => {
         messageRef.current?.focus();
         return;
       }
+      return;
     }
 
     // Handle form submit
@@ -114,7 +157,7 @@ const Contact = () => {
         <p className="text-justify text-xs italic">
           Tous les champs sont obligatoires
         </p>
-        <form className="w-full" onSubmit={submitForm} noValidate>
+        <form className="w-full max-w-4xl" onSubmit={submitForm} noValidate>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label
@@ -213,9 +256,21 @@ const Contact = () => {
               </ErrorContainer>
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="mt-4 flex w-full flex-col items-end">
+            <ErrorContainer
+              errorMessage={recaptchaError}
+              showError={hasFormBeingSubmitted}
+              errorId={recaptchaErrorId}
+            >
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey="6LcKG5UpAAAAAACb0agDbp3LMiHxVWz8xzTKaFjp"
+                onChange={onRecaptchaValueChange}
+                {...(recaptchaErrorProps as any)}
+              />
+            </ErrorContainer>
             <button
-              className="mt-4 w-full rounded-md  bg-[#ffdd57] py-2 font-semibold drop-shadow-md md:w-52 "
+              className="mt-2 w-40 rounded-md bg-[#ffdd57] py-2 font-semibold drop-shadow-md "
               type="submit"
             >
               Envoyer
