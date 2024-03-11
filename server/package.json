@@ -1,0 +1,17 @@
+{
+  "name": "aycandoo-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Backend API for aycandoo.fr",
+  "author": "Jérémy Brochard",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
