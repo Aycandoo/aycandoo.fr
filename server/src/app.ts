@@ -1,15 +1,28 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 3001;
+import express from 'express';
 
-app.get('/', (req, res) => res.type('html').send(html));
+const port = process.env.PORT || 3001;
+const app = express();
+
+app.use(express.json());
+
+app.get('/api/contact-form', (req, res) => {
+  res.type('html');
+  res.send(html)
+});
+
+// app.post('/api/contact-form', (req, res) => {
+//   const { firstname, lastname, email, message, recaptchaToken } = req.body;
+//   console.log(req.body);
+//   res.sendStatus(200);
+// });
 
 const server = app.listen(port, () =>
-  console.log(`Example app listening on port ${port}!`)
+  console.log(`Aycandoo API listening on port ${port}!`)
 );
 
-server.keepAliveTimeout = 120 * 1000;
-server.headersTimeout = 120 * 1000;
+// TODO: to refine later
+// server.keepAliveTimeout = 120 * 1000;
+// server.headersTimeout = 120 * 1000;
 
 const html = `
 <!DOCTYPE html>
