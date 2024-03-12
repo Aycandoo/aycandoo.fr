@@ -1,4 +1,5 @@
-const RECAPTCHA_SECRET = 'TO-BE-DEFINED';
+const RECAPTCHA_SECRET: string = process.env.RECAPTCHA_SECRET!;
+const VERIFY_ENDPOINT: string = process.env.VERIFY_ENDPOINT!;
 
 export interface RecaptchaResponse {
   success: boolean;
@@ -11,7 +12,7 @@ export const verifyToken = async (
   token: string
 ): Promise<RecaptchaResponse> => {
   const response = await fetch(
-    'https://www.google.com/recaptcha/api/siteverify?' +
+    `${VERIFY_ENDPOINT}?` +
       new URLSearchParams({
         secret: RECAPTCHA_SECRET,
         response: token,
