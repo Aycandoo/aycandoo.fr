@@ -1,5 +1,5 @@
-const RECAPTCHA_SECRET: string = process.env.RECAPTCHA_SECRET!;
-const VERIFY_ENDPOINT: string = process.env.VERIFY_ENDPOINT!;
+const RECAPTCHA_SECRET = process.env.RECAPTCHA_SECRET!.trim();
+const VERIFY_ENDPOINT = process.env.VERIFY_ENDPOINT!.trim();
 
 export interface RecaptchaResponse {
   success: boolean;
