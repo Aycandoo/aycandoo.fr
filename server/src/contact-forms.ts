@@ -1,5 +1,6 @@
 import express from 'express';
 import { body, validationResult } from 'express-validator';
+import { isRecaptchaSuccess } from './recaptcha-service';
 
 const contactFormsRouter = express.Router();
 
@@ -10,17 +11,27 @@ contactFormsRouter.post(
   body('email').trim().isEmail(),
   body('message').trim().notEmpty(),
   body('recaptchaToken').trim().notEmpty(),
-  (req, res) => {
+  async (req, res) => {
     const result = validationResult(req);
+
     if (result.isEmpty()) {
-      console.log(req.body);
-      res.sendStatus(200);
+      const { firstname, lastname, email, message, recaptchaToken } = req.body;
+
+      if (await isRecaptchaSuccess(recaptchaToken)) {
+        // TODO: handle success -> send emails
+        console.log('Recaptcha token is valid!');
+
+        res.sendStatus(200);
+      } else {
+        res.status(400).send('Invalid ReCAPTCHA token');
+      }
       return;
     }
 
-    res.status(400).send({ errors: result.array() });
+    // TODO: to handle better later
+    res.status(400).send('Invalid form fields');
+    // res.status(400).send({ errors: result.array() }); // <-- kept as example
   }
 );
 
 export default contactFormsRouter;
-
