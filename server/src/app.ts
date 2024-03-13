@@ -1,5 +1,5 @@
 import express from 'express';
-import contactFormsRouter from './contact-forms';
+import contactFormsRouter from './contact-forms-controller';
 
 const port = process.env.PORT || 3001;
 const app = express();
