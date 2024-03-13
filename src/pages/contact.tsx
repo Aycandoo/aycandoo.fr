@@ -1,8 +1,10 @@
 import { HeadFC } from 'gatsby';
 import React, { FormEvent, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { sendContactForm } from '../data/contact-data';
 import useUniqueIds from '../hooks/use-unique-ids';
 import useValidation from '../hooks/use-validation';
+import { ContactForm } from '../models/contact-form';
 import ErrorContainer from '../shared/error-container';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
@@ -12,14 +14,6 @@ import {
   validateNonEmptyField,
   validateRecaptcha,
 } from '../utils/validators';
-
-interface ContactForm {
-  firstname: string;
-  lastname: string;
-  email: string;
-  message: string;
-  recaptchaToken: string;
-}
 
 const Contact = () => {
   const [
@@ -145,6 +139,8 @@ const Contact = () => {
 
     // Handle form submit
     console.log('submitting form: ', formState);
+    const response = await sendContactForm(formState);
+    console.log('response', response);
   };
 
   return (
