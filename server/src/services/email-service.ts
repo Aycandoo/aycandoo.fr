@@ -1,4 +1,5 @@
 import { SendSmtpEmail, TransactionalEmailsApi } from '@getbrevo/brevo';
+import uniqid from 'uniqid';
 
 const BREVO_API_KEY = process.env.BREVO_API_KEY!.trim();
 const CONFIRMATION_EMAIL_TEMPLATE_ID =
@@ -13,7 +14,6 @@ export interface RecipientData {
 }
 
 export interface EmailParams {
-  id: string;
   name: string;
   templateId: number;
   to: RecipientData;
@@ -48,11 +48,11 @@ export const sendEmail = (params: EmailParams): void => {
   apiInstance.sendTransacEmail(emailInstance).then(
     (data) => {
       console.log(
-        `Email ${params.id} sent successfully. Returned data: ` + data
+        `Email '${params.name}' sent successfully. Returned data: ` + data
       );
     },
     (error: unknown) => {
-      console.error(`Email ${params.id} error`, error);
+      console.error(`Email '${params.name}' error`, error);
     }
   );
 };
@@ -60,10 +60,9 @@ export const sendEmail = (params: EmailParams): void => {
 export const sendConfirmationEmails = (data: RecipientData): void => {
   const { firstname, lastname, email, message } = data;
 
-  const emailId = '1';
+  const emailId = uniqid();
 
   const partialEmailParams: EmailParams = {
-    id: emailId,
     name: '',
     templateId: 0,
     params: {
@@ -78,11 +77,11 @@ export const sendConfirmationEmails = (data: RecipientData): void => {
   sendEmail({
     ...partialEmailParams,
     templateId: REQUEST_EMAIL_TEMPLATE_ID,
-    name: `Request email for ${emailId}`,
+    name: `request email for ${emailId}`,
   });
   sendEmail({
     ...partialEmailParams,
     templateId: CONFIRMATION_EMAIL_TEMPLATE_ID,
-    name: `Confirmation email for ${emailId}`,
+    name: `confirmation email for ${emailId}`,
   });
 };
