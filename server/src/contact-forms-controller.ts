@@ -1,6 +1,6 @@
 import express from 'express';
 import { body, validationResult } from 'express-validator';
-import { sendConfirmationEmails } from './services/email-service';
+import { sendAcknowledgementEmails } from './services/email-service';
 import { isRecaptchaSuccess } from './services/recaptcha-service';
 
 const contactFormsRouter = express.Router();
@@ -22,12 +22,14 @@ contactFormsRouter.post(
         console.log('Recaptcha token is valid!');
 
         const { firstname, lastname, email, message } = req.body;
-        sendConfirmationEmails({
-          firstname,
-          lastname,
-          email,
-          message,
-        });
+        sendAcknowledgementEmails(
+          {
+            firstname,
+            lastname,
+            email,
+          },
+          message
+        );
 
         res.sendStatus(200);
       } else {
