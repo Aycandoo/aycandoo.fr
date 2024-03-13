@@ -137,8 +137,6 @@ const Contact = () => {
       return;
     }
 
-    // Handle form submit
-    console.log('submitting form: ', formState);
     const response = await sendContactForm(formState);
     console.log('response', response);
   };
@@ -260,7 +258,7 @@ const Contact = () => {
             >
               <ReCAPTCHA
                 ref={recaptchaRef}
-                sitekey="6LcKG5UpAAAAAACb0agDbp3LMiHxVWz8xzTKaFjp"
+                sitekey={process.env.AYCANDOO_API_URL}
                 onChange={onRecaptchaValueChange}
                 {...(recaptchaErrorProps as any)}
               />
