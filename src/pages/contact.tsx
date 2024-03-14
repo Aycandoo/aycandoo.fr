@@ -37,9 +37,9 @@ const Contact = () => {
   ] = useUniqueIds(9);
   const [hasFormBeingSubmitted, setHasFormBeingSubmitted] = useState(false);
   const [isFormBeingProcessed, setIsFormBeingProcessed] = useState(false);
-  const [isFormSuccess, setIsFormSuccess] = useState(true);
-  const [isFormError, setIsFormError] = useState(true);
-  const [isMessageDisplayed, setIsMessageDisplayed] = useState(true);
+  const [isFormSuccess, setIsFormSuccess] = useState(false);
+  const [isFormError, setIsFormError] = useState(false);
+  const [isMessageDisplayed, setIsMessageDisplayed] = useState(false);
   const [formState, setFormState] = useState(EMPTY_FORM_STATE);
 
   useEffect(() => {
