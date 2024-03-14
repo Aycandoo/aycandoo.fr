@@ -1,5 +1,5 @@
 import { HeadFC } from 'gatsby';
-import React, { FormEvent, useRef, useState } from 'react';
+import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { sendContactForm } from '../data/contact-data';
 import useUniqueIds from '../hooks/use-unique-ids';
@@ -15,6 +15,14 @@ import {
   validateRecaptcha,
 } from '../utils/validators';
 
+const EMPTY_FORM_STATE: ContactForm = {
+  firstname: '',
+  lastname: '',
+  email: '',
+  message: '',
+  recaptchaToken: '',
+};
+
 const Contact = () => {
   const [
     firstNameId,
@@ -28,13 +36,23 @@ const Contact = () => {
     recaptchaErrorId,
   ] = useUniqueIds(9);
   const [hasFormBeingSubmitted, setHasFormBeingSubmitted] = useState(false);
-  const [formState, setFormState] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    message: '',
-    recaptchaToken: '',
-  } as ContactForm);
+  const [isFormBeingProcessed, setIsFormBeingProcessed] = useState(false);
+  const [isFormSuccess, setIsFormSuccess] = useState(true);
+  const [isFormError, setIsFormError] = useState(true);
+  const [isMessageDisplayed, setIsMessageDisplayed] = useState(true);
+  const [formState, setFormState] = useState(EMPTY_FORM_STATE);
+
+  useEffect(() => {
+    if (isFormSuccess || isFormError) {
+      setIsMessageDisplayed(true);
+
+      setTimeout(() => {
+        setIsMessageDisplayed(false);
+        setIsFormSuccess(false);
+        setIsFormError(false);
+      }, 6000);
+    }
+  }, [isFormSuccess, isFormError]);
 
   const [firstNameError, firstNameErrorProps] = useValidation({
     isRequired: true,
@@ -105,8 +123,7 @@ const Contact = () => {
   const submitForm = async (event: FormEvent) => {
     event.preventDefault();
     setHasFormBeingSubmitted(true);
-
-    // const recaptchaToken = await recaptchaRef.current?.getValue();
+    setIsFormBeingProcessed(true);
 
     if (
       firstNameError ||
@@ -115,6 +132,8 @@ const Contact = () => {
       messageError ||
       recaptchaError
     ) {
+      setIsFormBeingProcessed(false);
+
       if (firstNameError) {
         firstnameRef.current?.focus();
         return;
@@ -137,8 +156,21 @@ const Contact = () => {
       return;
     }
 
-    const response = await sendContactForm(formState);
-    console.log('response', response);
+    const isSuccess = await sendContactForm(formState);
+    setIsFormBeingProcessed(false);
+
+    if (isSuccess) {
+      setIsFormSuccess(true);
+      resetForm();
+    } else {
+      setIsFormError(true);
+    }
+  };
+
+  const resetForm = () => {
+    setFormState(EMPTY_FORM_STATE);
+    recaptchaRef.current?.reset();
+    setHasFormBeingSubmitted(false);
   };
 
   return (
@@ -258,19 +290,39 @@ const Contact = () => {
             >
               <ReCAPTCHA
                 ref={recaptchaRef}
-                sitekey={process.env.AYCANDOO_API_URL}
+                sitekey={process.env.RECAPTCHA_PUBLIC_KEY}
                 onChange={onRecaptchaValueChange}
                 {...(recaptchaErrorProps as any)}
               />
             </ErrorContainer>
             <button
-              className="mt-2 w-40 rounded-md bg-[#ffdd57] py-2 font-semibold drop-shadow-md "
+              className="mt-2 w-40 rounded-md bg-[#ffdd57] py-2 font-semibold drop-shadow-md hover:ring-2 hover:ring-black disabled:opacity-50 disabled:ring-0"
               type="submit"
+              disabled={isFormBeingProcessed}
             >
               Envoyer
             </button>
           </div>
         </form>
+        {isMessageDisplayed && isFormSuccess && (
+          <p
+            aria-atomic="true"
+            aria-live="assertive"
+            className="mt-4 flex w-full max-w-2xl items-center justify-center rounded-md bg-green-200 p-4 font-medium ring-1 ring-green-500 "
+          >
+            Merci pour votre message, votre demande a bien été envoyée.
+          </p>
+        )}
+        {isMessageDisplayed && isFormError && (
+          <p
+            aria-atomic="true"
+            aria-live="assertive"
+            className="mt-4 flex w-full max-w-4xl items-center justify-center rounded-md bg-red-200 p-4 font-medium ring-1 ring-red-500 "
+          >
+            Une erreur inattendue s'est produite, nos équipes analysent le
+            problème. Merci de réessayer plus tard.
+          </p>
+        )}
       </Section>
     </Layout>
   );
