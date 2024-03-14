@@ -7,8 +7,8 @@ const CONFIRMATION_EMAIL_TEMPLATE_ID =
 const REQUEST_EMAIL_TEMPLATE_ID = +process.env.REQUEST_EMAIL_TEMPLATE_ID!;
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL!.trim();
 const CAN_SEND_CONFIRMATION_EMAIL =
-  process.env.CAN_SEND_CONFIRMATION_EMAIL || false;
-const CAN_SEND_REQUEST_EMAIL = process.env.CAN_SEND_REQUEST_EMAIL || false;
+  !!process.env.CAN_SEND_CONFIRMATION_EMAIL || false;
+const CAN_SEND_REQUEST_EMAIL = !!process.env.CAN_SEND_REQUEST_EMAIL || false;
 
 export interface Recipient {
   email: string;
