@@ -183,7 +183,7 @@ const Contact = () => {
         <p className="text-justify text-xs italic">
           Tous les champs sont obligatoires
         </p>
-        <form className="w-full max-w-4xl" onSubmit={submitForm} noValidate>
+        <form className="w-full max-w-2xl" onSubmit={submitForm} noValidate>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
               <label
