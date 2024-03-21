@@ -296,11 +296,19 @@ const Contact = () => {
               />
             </ErrorContainer>
             <button
-              className="mt-2 w-40 rounded-md bg-[#ffdd57] py-2 font-semibold drop-shadow-md hover:ring-2 hover:ring-black disabled:opacity-50 disabled:ring-0"
+              className="mt-2 flex w-48 justify-center gap-4 rounded-md bg-[#ffdd57] py-2 font-semibold drop-shadow-md hover:ring-2 hover:ring-black disabled:opacity-50 disabled:ring-0"
               type="submit"
               disabled={isFormBeingProcessed}
             >
-              Envoyer
+              {isFormBeingProcessed && (
+                <>
+                  <div className="h-6 w-6 animate-spin rounded-full border-2 border-t-2 border-black border-t-white"></div>
+                  <p aria-atomic="true" aria-live="assertive">
+                    Envoi en cours
+                  </p>
+                </>
+              )}
+              {!isFormBeingProcessed && <p>Envoyer</p>}
             </button>
           </div>
         </form>
