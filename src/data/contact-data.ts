@@ -11,7 +11,7 @@ export const sendContactForm = async (
 ): Promise<string | null> => {
   const { data } = await axios
     .post<string>(`${process.env.AYCANDOO_API_URL}/contact-forms`, formState, {
-      timeout: 5000,
+      timeout: +process.env.HTTP_REQUESTS_TIMEOUT!,
     })
     .catch(handleError);
   return data;
