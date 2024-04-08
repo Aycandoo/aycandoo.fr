@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { type FC } from 'react';
 import Teammate from './teammate';
 import { StaticImage } from 'gatsby-plugin-image';
 
-const Team = () => {
+const Team: FC = () => {
   return (
     <ul className="flex flex-col gap-24 py-12 xl:flex-row">
       <Teammate

@@ -1,10 +1,16 @@
-import { HeadFC } from 'gatsby';
-import React, { FormEvent, useEffect, useRef, useState } from 'react';
+import type { HeadFC } from 'gatsby';
+import React, {
+  type FC,
+  type FormEvent,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { sendContactForm } from '../data/contact-data';
 import useUniqueIds from '../hooks/use-unique-ids';
 import useValidation from '../hooks/use-validation';
-import { ContactForm } from '../models/contact-form';
+import { type ContactForm } from '../models/contact-form';
 import ErrorContainer from '../shared/error-container';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
@@ -23,7 +29,7 @@ const EMPTY_FORM_STATE: ContactForm = {
   recaptchaToken: '',
 };
 
-const Contact = () => {
+const Contact: FC = () => {
   const [
     firstNameId,
     firstNameErrorId,
@@ -100,7 +106,7 @@ const Contact = () => {
   const messageRef = useRef(null as HTMLElement | null);
   const recaptchaRef = useRef(null as ReCAPTCHA | null);
 
-  const onFormValueChange = (event: any) => {
+  const onFormValueChange = (event: any): void => {
     if (!formState) {
       return;
     }
@@ -110,26 +116,26 @@ const Contact = () => {
     });
   };
 
-  const onRecaptchaValueChange = (token: string | null) => {
+  const onRecaptchaValueChange = (token: string | null): void => {
     if (!formState) {
       return;
     }
     setFormState({
       ...formState,
-      recaptchaToken: token ? token : '',
+      recaptchaToken: token ?? '',
     });
   };
 
-  const submitForm = async (event: FormEvent) => {
+  const submitForm = async (event: FormEvent): Promise<void> => {
     event.preventDefault();
     setHasFormBeingSubmitted(true);
     setIsFormBeingProcessed(true);
 
     if (
-      firstNameError ||
-      lastNameError ||
-      emailError ||
-      messageError ||
+      firstNameError ??
+      lastNameError ??
+      emailError ??
+      messageError ??
       recaptchaError
     ) {
       setIsFormBeingProcessed(false);
@@ -167,7 +173,7 @@ const Contact = () => {
     }
   };
 
-  const resetForm = () => {
+  const resetForm = (): void => {
     setFormState(EMPTY_FORM_STATE);
     recaptchaRef.current?.reset();
     setHasFormBeingSubmitted(false);
@@ -327,7 +333,7 @@ const Contact = () => {
             aria-live="assertive"
             className="mt-4 flex w-full max-w-4xl items-center justify-center rounded-md bg-red-200 p-4 font-medium ring-1 ring-red-500 "
           >
-            Une erreur inattendue s'est produite, nos équipes analysent le
+            Une erreur inattendue s&apos;est produite, nos équipes analysent le
             problème. Merci de réessayer plus tard.
           </p>
         )}

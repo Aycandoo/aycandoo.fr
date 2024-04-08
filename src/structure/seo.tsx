@@ -1,9 +1,9 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { FC } from 'react';
+import React, { type FC } from 'react';
 
-export type SeoParams = {
+export interface SeoParams {
   title: string;
-};
+}
 
 const Seo: FC<SeoParams> = ({ title }) => {
   const data = useStaticQuery(graphql`

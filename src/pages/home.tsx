@@ -3,14 +3,14 @@ import {
   CodeBracketIcon,
   Square3Stack3DIcon,
 } from '@heroicons/react/24/outline';
-import React from 'react';
+import React, { type FC } from 'react';
 import Offering from '../shared/offering';
 import OfferingsList from '../shared/offerings-list';
 import Team from '../shared/team';
 import Section from '../structure/section';
 import './home.css';
 
-export default function Home() {
+const Home: FC = () => {
   return (
     <div className="flex flex-col pt-20">
       <div className="relative isolate mb-48 px-6 lg:px-8">
@@ -85,8 +85,8 @@ export default function Home() {
             Découvrez nos services de conseil IT chez Aycandoo, conçus pour
             répondre à vos besoins les plus spécifiques. Notre équipe vous
             accompagne dans la définition de vos stratégies technologiques,
-            l'optimisation de vos infrastructures et la résolution de vos défis
-            informatiques les plus complexes. Nous vous aidons à tirer le
+            l&apos;optimisation de vos infrastructures et la résolution de vos
+            défis informatiques les plus complexes. Nous vous aidons à tirer le
             meilleur parti de vos investissements technologiques et à atteindre
             vos objectifs métier avec succès.
           </Offering>
@@ -106,9 +106,9 @@ export default function Home() {
             title="Hébergement"
           >
             Confiez la gestion de votre infrastructure à Aycandoo, votre
-            partenaire d'hébergement fiable. Nous offrons des services
-            d'hébergement robustes pour assurer la disponibilité constante de
-            vos applications. Avec une infrastructure sécurisée et évolutive,
+            partenaire d&apos;hébergement fiable. Nous offrons des services
+            d&apos;hébergement robustes pour assurer la disponibilité constante
+            de vos applications. Avec une infrastructure sécurisée et évolutive,
             nous nous engageons à fournir un environnement optimal pour assurer
             la performance de vos projets.
           </Offering>
@@ -119,4 +119,6 @@ export default function Home() {
       </Section>
     </div>
   );
-}
+};
+
+export default Home;

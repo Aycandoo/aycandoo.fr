@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ValidationFn } from '../utils/validators';
+import { type ValidationFn } from '../utils/validators';
 
 export interface ValidationParams {
   value: any;
@@ -21,7 +21,8 @@ export type ValidationResult = [
 ];
 
 const useValidation = (params: ValidationParams): ValidationResult => {
-  const { value, validateFn, compareValue, errorId, showError, isRequired } = params;
+  const { value, validateFn, compareValue, errorId, showError, isRequired } =
+    params;
   const [error, setError] = useState(null as string | null);
 
   useEffect(() => {
