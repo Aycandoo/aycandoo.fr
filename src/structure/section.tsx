@@ -1,4 +1,9 @@
-import React, { FC, PropsWithChildren, useEffect, useState } from 'react';
+import React, {
+  type FC,
+  type PropsWithChildren,
+  useEffect,
+  useState,
+} from 'react';
 
 export type SectionParams = PropsWithChildren<{
   id: string;
