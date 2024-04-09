@@ -3,6 +3,8 @@ import { body, validationResult } from 'express-validator';
 import { sendAcknowledgementEmails } from './services/email-service';
 import { isRecaptchaSuccess } from './services/recaptcha-service';
 
+const areEmailsEnabled = process.env.ENABLE_EMAILS;
+
 const contactFormsRouter = express.Router();
 
 interface ContactForm {
@@ -31,16 +33,18 @@ contactFormsRouter.post(
           if (isValid) {
             console.log('Recaptcha token is valid!');
 
-            const { firstname, lastname, email, message }: ContactForm =
-              req.body;
-            sendAcknowledgementEmails(
-              {
-                firstname,
-                lastname,
-                email,
-              },
-              message
-            );
+            if (areEmailsEnabled === 'true') {
+              const { firstname, lastname, email, message }: ContactForm =
+                req.body;
+              sendAcknowledgementEmails(
+                {
+                  firstname,
+                  lastname,
+                  email,
+                },
+                message
+              );
+            }
 
             res.sendStatus(200);
           } else {
