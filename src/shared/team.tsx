@@ -11,6 +11,7 @@ const Team: FC = () => {
             risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
             nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
             ligula massa, varius a, semper congue, euismod non, mi."
+        linkedinProfile="https://www.linkedin.com/in/jeremy-brochard"
       >
         <StaticImage
           className="rounded-3xl"
@@ -26,6 +27,7 @@ const Team: FC = () => {
             risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
             nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
             ligula massa, varius a, semper congue, euismod non, mi."
+        linkedinProfile="https://www.linkedin.com/in/celine-ung"
       >
         <StaticImage
           className="rounded-3xl"
