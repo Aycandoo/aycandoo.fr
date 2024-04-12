@@ -15,7 +15,7 @@ const Footer: FC = () => {
           Contacter nous
         </Link>
       </div>
-      &copy; 2024 Aycandoo. Tous droits réservés
+      &copy; 2024 AYCANDOO. Tous droits réservés
     </footer>
   );
 };

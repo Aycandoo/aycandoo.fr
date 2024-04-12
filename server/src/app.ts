@@ -16,7 +16,7 @@ app.use(express.json());
 app.use('/api', cors(corsOptions), contactFormsRouter);
 
 app.listen(port, () => {
-  console.log(`Aycandoo API listening on port ${port}!`);
+  console.log(`AYCANDOO API listening on port ${port}!`);
 });
 
 // TODO: to refine later
