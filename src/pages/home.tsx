@@ -79,7 +79,7 @@ const Home: FC = () => {
         <OfferingsList>
           <Offering
             icon={<ChatBubbleLeftEllipsisIcon className="h-12 w-12" />}
-            title="Conseil IT"
+            title="Accompagnement"
           >
             Découvrez nos services de conseil IT chez Aycandoo, conçus pour
             répondre à vos besoins les plus spécifiques. Notre équipe vous
@@ -91,13 +91,14 @@ const Home: FC = () => {
           </Offering>
           <Offering
             icon={<CodeBracketIcon className="h-12 w-12" />}
-            title="Développement"
+            title="Réalisation"
           >
-            Découvrez le potentiel illimité de vos idées avec notre service de
-            développement chez Aycandoo. Nos développeurs fullstack expérimentés
-            mettent en œuvre des solutions novatrices, du concept à la
-            réalisation, assurant des projets web et mobiles qui dépassent vos
-            attentes.
+            Découvrez le potentiel illimité de vos idées chez Aycandoo. Notre
+            mission : accompagner nos clients dans la réalisation de leurs
+            projets web, en offrant des services de développement, de
+            déploiement et de maintenance. Confiez-nous la création de votre
+            site web et il ne vous restera plus quà vous concentrer sur le coeur
+            de votre entreprise en toute sérénité.
           </Offering>
 
           <Offering
