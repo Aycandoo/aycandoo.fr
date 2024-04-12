@@ -50,12 +50,12 @@ const Home: FC = () => {
               [<span aria-hidden="true">*</span>I can do : je peux faire]
             </p>
             <p className="mt-6 text-justify text-xl leading-8 text-gray-600">
-              Fondée par deux développeurs fullstack chevronnés, Aycandoo est
-              spécialisée dans le conseil IT, offrant des solutions sur mesure
-              pour répondre aux besoins uniques de nos clients. Que ce soit pour
-              des missions longues ou le développement complet de projets web,
-              notre équipe est là pour vous accompagner à chaque étape du
-              processus.
+              Fondée par deux développeurs fullstack chevronnés, AYCANDOO est
+              une société spécialisée dans le conseil IT, offrant des solutions
+              sur mesure pour répondre aux besoins uniques de nos clients. Que
+              ce soit pour accompagner vos équipes ou pour externaliser le
+              développement de vos projets web, notre équipe est là pour vous
+              accompagner à chaque étape du processus.
             </p>
           </div>
         </div>
