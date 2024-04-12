@@ -21,10 +21,7 @@ const Team: FC = () => {
       </Teammate>
       <Teammate
         name="Céline Ung"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-            ligula massa, varius a, semper congue, euismod non, mi."
+        description="Développeuse full stack depuis 2015 et spécialisée dans les technologies JavaScript, elle a travaillé chez des entreprises bien établies telles que BNP Paribas, JC Decaux, Pix et Invivo en apportant son expertise à leurs projets web. Elle veille à la mise en place solutions durables et accessibles à tous et sait également favoriser une atmosphère de travail dynamique, encourageant des pratiques collaboratives fructueuses au sein de l'équipe."
         role="Associée"
         linkedinProfile="https://www.linkedin.com/in/celine-ung"
       >

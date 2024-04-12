@@ -50,12 +50,7 @@ const Home: FC = () => {
               [<span aria-hidden="true">*</span>I can do : je peux faire]
             </p>
             <p className="mt-6 text-justify text-xl leading-8 text-gray-600">
-              Fondée par deux développeurs fullstack chevronnés, AYCANDOO est
-              une société spécialisée dans le conseil IT, offrant des solutions
-              sur mesure pour répondre aux besoins uniques de nos clients. Que
-              ce soit pour accompagner vos équipes ou pour externaliser le
-              développement de vos projets web, notre équipe est là pour vous
-              accompagner à chaque étape du processus.
+              Fondée par deux développeurs expérimentés, Aycandoo vous propose des solutions pour répondre à vos besoins en conseil IT et en développement web. Que ce soit pour renforcer vos équipes ou créer votre site web sur mesure, notre équipe vous accompagne à chaque étape de votre projet.
             </p>
           </div>
         </div>
@@ -80,7 +75,7 @@ const Home: FC = () => {
         <OfferingsList>
           <Offering
             icon={<ChatBubbleLeftEllipsisIcon className="h-12 w-12" />}
-            title="Conseil IT"
+            title="Accompagnement"
           >
             Découvrez nos services de conseil IT chez Aycandoo, conçus pour
             répondre à vos besoins les plus spécifiques. Notre équipe vous
@@ -92,13 +87,10 @@ const Home: FC = () => {
           </Offering>
           <Offering
             icon={<CodeBracketIcon className="h-12 w-12" />}
-            title="Développement"
+            title="Réalisation"
           >
-            Découvrez le potentiel illimité de vos idées avec notre service de
-            développement chez Aycandoo. Nos développeurs fullstack expérimentés
-            mettent en œuvre des solutions novatrices, du concept à la
-            réalisation, assurant des projets web et mobiles qui dépassent vos
-            attentes.
+            Découvrez le potentiel illimité de vos idées chez Aycandoo.
+            Notre mission : accompagner nos clients dans la réalisation de leurs projets web, en offrant des services de développement, de déploiement et de maintenance. Confiez-nous la création de votre site web et il ne vous restera plus quà vous concentrer sur le coeur de votre entreprise en toute sérénité.
           </Offering>
 
           <Offering
