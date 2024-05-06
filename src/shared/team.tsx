@@ -4,13 +4,12 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 const Team: FC = () => {
   return (
-    <ul className="flex flex-col gap-24 py-12 xl:flex-row">
+    <ul className="flex flex-row flex-wrap items-center justify-center gap-16 py-12 ">
       <Teammate
         name="Jérémy Brochard"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-            ligula massa, varius a, semper congue, euismod non, mi."
+        description="Développeur full stack polyvalent depuis 2015, il a accumulé une riche expérience en travaillant chez des clients renommés tels que la Société Générale et LexisNexis. Son expertise réside principalement dans le développement frontend, particulièrement sur Angular. Certifié Opquast, il accorde une attention particulière à l'accessibilité pour garantir des solutions inclusives. En dehors de son travail, il nourrit une passion pour le gaming, qui stimule sa créativité et sa curiosité technologique."
+        role="Président"
+        linkedinProfile="https://www.linkedin.com/in/jeremy-brochard"
       >
         <StaticImage
           className="rounded-3xl"
@@ -22,10 +21,9 @@ const Team: FC = () => {
       </Teammate>
       <Teammate
         name="Céline Ung"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-            ligula massa, varius a, semper congue, euismod non, mi."
+        description="Développeuse full stack depuis 2015 et spécialisée dans les technologies JavaScript, elle a travaillé chez des entreprises bien établies telles que BNP Paribas, JC Decaux, Pix et Invivo en apportant son expertise à leurs projets web. Elle veille à la mise en place solutions durables et accessibles à tous et sait également favoriser une atmosphère de travail dynamique, encourageant des pratiques collaboratives fructueuses au sein de l'équipe."
+        role="Associée"
+        linkedinProfile="https://www.linkedin.com/in/celine-ung"
       >
         <StaticImage
           className="rounded-3xl"

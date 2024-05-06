@@ -1,8 +1,9 @@
 import type { GatsbyConfig } from 'gatsby';
 
-require("dotenv").config({
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -21,8 +22,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Aycandoo`,
-        short_name: `Aycandoo`,
+        name: `AYCANDOO`,
+        short_name: `AYCANDOO`,
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#f4de71`,
@@ -45,9 +46,7 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
-        trackingIds: [
-          "G-KTRBWK0LKE",
-        ],
+        trackingIds: ['G-KTRBWK0LKE'],
         gtagConfig: {
           anonymize_ip: true,
           cookie_expires: 0,

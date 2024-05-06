@@ -50,12 +50,11 @@ const Home: FC = () => {
               [<span aria-hidden="true">*</span>I can do : je peux faire]
             </p>
             <p className="mt-6 text-justify text-xl leading-8 text-gray-600">
-              Fondée par deux développeurs fullstack chevronnés, Aycandoo est
-              spécialisée dans le conseil IT, offrant des solutions sur mesure
-              pour répondre aux besoins uniques de nos clients. Que ce soit pour
-              des missions longues ou le développement complet de projets web,
-              notre équipe est là pour vous accompagner à chaque étape du
-              processus.
+              Fondée par deux développeurs expérimentés, AYCANDOO vous propose
+              des solutions pour répondre à vos besoins en conseil IT et en
+              développement web. Que ce soit pour renforcer vos équipes ou créer
+              votre site web sur mesure, notre équipe vous accompagne à chaque
+              étape de votre projet.
             </p>
           </div>
         </div>
@@ -82,35 +81,30 @@ const Home: FC = () => {
             icon={<ChatBubbleLeftEllipsisIcon className="h-12 w-12" />}
             title="Conseil IT"
           >
-            Découvrez nos services de conseil IT chez Aycandoo, conçus pour
-            répondre à vos besoins les plus spécifiques. Notre équipe vous
-            accompagne dans la définition de vos stratégies technologiques,
-            l&apos;optimisation de vos infrastructures et la résolution de vos
-            défis informatiques les plus complexes. Nous vous aidons à tirer le
-            meilleur parti de vos investissements technologiques et à atteindre
-            vos objectifs métier avec succès.
+            Notre équipe vous accompagne dans la définition de vos stratégies
+            technologiques, l&apos;optimisation de vos infrastructures et la
+            résolution de vos défis informatiques les plus complexes. Nous vous
+            aidons à tirer le meilleur parti de vos investissements
+            technologiques et à atteindre vos objectifs métier avec succès.
           </Offering>
           <Offering
             icon={<CodeBracketIcon className="h-12 w-12" />}
             title="Développement"
           >
-            Découvrez le potentiel illimité de vos idées avec notre service de
-            développement chez Aycandoo. Nos développeurs fullstack expérimentés
-            mettent en œuvre des solutions novatrices, du concept à la
-            réalisation, assurant des projets web et mobiles qui dépassent vos
-            attentes.
+            Nous pouvons vous accompagner dans la réalisation de vos projets
+            web, en offrant des services de développement, de déploiement et de
+            maintenance. Confiez-nous la création de votre site web et il ne
+            vous restera plus quà vous concentrer sur le coeur de votre
+            entreprise en toute sérénité.
           </Offering>
-
           <Offering
             icon={<Square3Stack3DIcon className="h-12 w-12" />}
             title="Hébergement"
           >
-            Confiez la gestion de votre infrastructure à Aycandoo, votre
-            partenaire d&apos;hébergement fiable. Nous offrons des services
-            d&apos;hébergement robustes pour assurer la disponibilité constante
-            de vos applications. Avec une infrastructure sécurisée et évolutive,
-            nous nous engageons à fournir un environnement optimal pour assurer
-            la performance de vos projets.
+            Nous offrons des services d&apos;hébergement robustes pour assurer
+            la disponibilité constante de vos applications. Avec une
+            infrastructure sécurisée et évolutive, nous nous engageons à fournir
+            un environnement optimal pour assurer la performance de vos projets.
           </Offering>
         </OfferingsList>
       </Section>

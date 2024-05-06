@@ -1,6 +1,6 @@
-# Aycandoo API
+# AYCANDOO API
 
-This project represents the backend API made for [Aycandoo institutional website](https://aycandoo.fr). **The main purpose of this API is to handle the contact form sent by frontend app**.
+This project represents the backend API made for [AYCANDOO institutional website](https://aycandoo.fr). **The main purpose of this API is to handle the contact form sent by frontend app**.
 
 - Built with [ExpressJS](https://expressjs.com/)
 - Packaged with [ESBuild](https://esbuild.github.io/)

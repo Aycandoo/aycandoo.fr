@@ -1,13 +1,13 @@
 <p align="center">
   <a href="https://aycandoo.fr">
-    <img alt="Aycandoo logo" src="./src/images/aycandoo-color-logo.svg" width="300" style="background-color: black;"/>
+    <img alt="AYCANDOO logo" src="./src/images/aycandoo-color-logo.svg" width="300" style="background-color: black;"/>
   </a>
 </p>
 <h1 align="center">
-  Aycandoo institutional website
+  AYCANDOO institutional website
 </h1>
 
-This repository contains the source code of the [Aycandoo institutional website](https://aycandoo.fr). The app describes the services provided by the company. It will also features a blog page soon.
+This repository contains the source code of the [AYCANDOO institutional website](https://aycandoo.fr). The app describes the services provided by the company. It will also features a blog page soon.
 
 - Frontend app made with [Gatsby](https://www.gatsbyjs.com/)
 - Backend API made with [ExpressJS](https://expressjs.com/)
