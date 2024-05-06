@@ -2,7 +2,7 @@ import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link, graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import React, { FC, useState } from 'react';
+import React, { type FC, useState } from 'react';
 
 const navigation = [
   { name: 'Accueil', to: '/' },
@@ -47,7 +47,9 @@ const Header: FC = () => {
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setIsMobileMenuOpen(true)}
+            onClick={() => {
+              setIsMobileMenuOpen(true);
+            }}
           >
             <span className="sr-only">Open navigation menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
@@ -68,7 +70,7 @@ const Header: FC = () => {
 
       <Dialog
         as="div"
-        className="lg:hidden" 
+        className="lg:hidden"
         open={isMobileMenuOpen}
         onClose={setIsMobileMenuOpen}
       >
@@ -87,7 +89,9 @@ const Header: FC = () => {
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+              }}
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon className="h-6 w-6" aria-hidden="true" />

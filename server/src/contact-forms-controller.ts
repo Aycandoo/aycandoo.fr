@@ -3,7 +3,17 @@ import { body, validationResult } from 'express-validator';
 import { sendAcknowledgementEmails } from './services/email-service';
 import { isRecaptchaSuccess } from './services/recaptcha-service';
 
+const areEmailsEnabled = process.env.ENABLE_EMAILS;
+
 const contactFormsRouter = express.Router();
+
+interface ContactForm {
+  firstname: string;
+  lastname: string;
+  email: string;
+  message: string;
+  recaptchaToken: string;
+}
 
 contactFormsRouter.post(
   '/contact-forms',
@@ -12,35 +22,44 @@ contactFormsRouter.post(
   body('email').trim().isEmail(),
   body('message').trim().notEmpty(),
   body('recaptchaToken').trim().notEmpty(),
-  async (req, res) => {
+  (req, res) => {
     const result = validationResult(req);
 
     if (result.isEmpty()) {
-      const { recaptchaToken } = req.body;
+      const { recaptchaToken }: ContactForm = req.body;
 
-      if (await isRecaptchaSuccess(recaptchaToken)) {
-        console.log('Recaptcha token is valid!');
+      isRecaptchaSuccess(recaptchaToken)
+        .then((isValid) => {
+          if (isValid) {
+            console.log('Recaptcha token is valid!');
 
-        const { firstname, lastname, email, message } = req.body;
-        sendAcknowledgementEmails(
-          {
-            firstname,
-            lastname,
-            email,
-          },
-          message
-        );
+            if (areEmailsEnabled === 'true') {
+              const { firstname, lastname, email, message }: ContactForm =
+                req.body;
+              sendAcknowledgementEmails(
+                {
+                  firstname,
+                  lastname,
+                  email,
+                },
+                message
+              );
+            }
 
-        res.sendStatus(200);
-      } else {
-        res.status(400).send('Invalid ReCAPTCHA token');
-      }
-      return;
+            res.sendStatus(200);
+          } else {
+            res.status(400).send('Invalid ReCAPTCHA token');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          res.status(500).send('Internal server error');
+        });
+    } else {
+      // TODO: to handle better later
+      res.status(400).send('Invalid form fields');
+      // res.status(400).send({ errors: result.array() }); // <-- kept as example
     }
-
-    // TODO: to handle better later
-    res.status(400).send('Invalid form fields');
-    // res.status(400).send({ errors: result.array() }); // <-- kept as example
   }
 );
 

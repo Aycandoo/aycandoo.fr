@@ -1,44 +1,33 @@
 <p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  <a href="https://aycandoo.fr">
+    <img alt="AYCANDOO logo" src="./src/images/aycandoo-color-logo.svg" width="300" style="background-color: black;"/>
   </a>
 </p>
 <h1 align="center">
-  Gatsby Minimal TypeScript Starter
+  AYCANDOO institutional website
 </h1>
 
-## 🚀 Quick start
+This repository contains the source code of the [AYCANDOO institutional website](https://aycandoo.fr). The app describes the services provided by the company. It will also features a blog page soon.
 
-1.  **Create a Gatsby site.**
+- Frontend app made with [Gatsby](https://www.gatsbyjs.com/)
+- Backend API made with [ExpressJS](https://expressjs.com/)
+- Hosted on [Render](https://render.com/)
+- Makes use of [ReCAPTCHA](https://www.google.com/recaptcha/about/) to protect contact form and [Brevo](https://www.brevo.com/) to send emails
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
+## 🚀 Get started
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+**Prerequisites**
 
-2.  **Start developing.**
+- NodeJS v20 or newer (see [official website](https://nodejs.org/en))
+- Gatsby CLI v5 or newer (see [documentation](https://www.gatsbyjs.com/docs/tutorial/getting-started/part-0/#gatsby-cli))
 
-    Navigate into your new site’s directory and start it up.
+**Command lines**
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+- Install project dependencies: `npm install`
+- Run the frontend app: `npm start`
+- Run the backend API: `npm run start-api` (needs environment variables detailed in API readme)
 
-3.  **Open the code and start customizing!**
+## 🔍 Automatic ESLint and Prettier checks
 
-    Your site is now running at http://localhost:8000!
-
-    Edit `src/pages/index.tsx` to see your site update in real-time!
-
-4.  **Learn more**
-
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+The project makes use of `lint-staged` to run ESLint and Prettier checks on staged files when commiting.
 

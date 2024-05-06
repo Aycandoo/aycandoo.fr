@@ -1,7 +1,14 @@
-node_modules/
-.cache/
-public
-src/gatsby-types.d.ts
+# IDE configuration files
+.idea
 
+# node modules
+node_modules/
 server/node_modules/
+
+# build output
+public
 server/out
+
+# other
+.cache/
+src/gatsby-types.d.ts
