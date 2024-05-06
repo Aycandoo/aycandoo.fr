@@ -1,6 +1,6 @@
 {
   "name": "aycandoo-api",
-  "version": "1.0.3",
+  "version": "1.2.0",
   "private": true,
   "description": "Backend API for aycandoo.fr",
   "author": "Jérémy Brochard",
