@@ -79,38 +79,32 @@ const Home: FC = () => {
         <OfferingsList>
           <Offering
             icon={<ChatBubbleLeftEllipsisIcon className="h-12 w-12" />}
-            title="Accompagnement"
+            title="Conseil IT"
           >
-            Découvrez nos services de conseil IT chez Aycandoo, conçus pour
-            répondre à vos besoins les plus spécifiques. Notre équipe vous
-            accompagne dans la définition de vos stratégies technologiques,
-            l&apos;optimisation de vos infrastructures et la résolution de vos
-            défis informatiques les plus complexes. Nous vous aidons à tirer le
-            meilleur parti de vos investissements technologiques et à atteindre
-            vos objectifs métier avec succès.
+            Notre équipe vous accompagne dans la définition de vos stratégies
+            technologiques, l&apos;optimisation de vos infrastructures et la
+            résolution de vos défis informatiques les plus complexes. Nous vous
+            aidons à tirer le meilleur parti de vos investissements
+            technologiques et à atteindre vos objectifs métier avec succès.
           </Offering>
           <Offering
             icon={<CodeBracketIcon className="h-12 w-12" />}
-            title="Réalisation"
+            title="Développement"
           >
-            Découvrez le potentiel illimité de vos idées chez Aycandoo. Notre
-            mission : accompagner nos clients dans la réalisation de leurs
-            projets web, en offrant des services de développement, de
-            déploiement et de maintenance. Confiez-nous la création de votre
-            site web et il ne vous restera plus quà vous concentrer sur le coeur
-            de votre entreprise en toute sérénité.
+            Nous pouvons vous accompagner dans la réalisation de vos projets
+            web, en offrant des services de développement, de déploiement et de
+            maintenance. Confiez-nous la création de votre site web et il ne
+            vous restera plus quà vous concentrer sur le coeur de votre
+            entreprise en toute sérénité.
           </Offering>
-
           <Offering
             icon={<Square3Stack3DIcon className="h-12 w-12" />}
             title="Hébergement"
           >
-            Confiez la gestion de votre infrastructure à Aycandoo, votre
-            partenaire d&apos;hébergement fiable. Nous offrons des services
-            d&apos;hébergement robustes pour assurer la disponibilité constante
-            de vos applications. Avec une infrastructure sécurisée et évolutive,
-            nous nous engageons à fournir un environnement optimal pour assurer
-            la performance de vos projets.
+            Nous offrons des services d&apos;hébergement robustes pour assurer
+            la disponibilité constante de vos applications. Avec une
+            infrastructure sécurisée et évolutive, nous nous engageons à fournir
+            un environnement optimal pour assurer la performance de vos projets.
           </Offering>
         </OfferingsList>
       </Section>
