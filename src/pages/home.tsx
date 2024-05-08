@@ -108,7 +108,7 @@ const Home: FC = () => {
           </Offering>
         </OfferingsList>
       </Section>
-      <Section id="team" title="Une équipe experimenté à votre écoute">
+      <Section id="team" title="Une équipe experimentée à votre écoute">
         <Team></Team>
       </Section>
     </div>
