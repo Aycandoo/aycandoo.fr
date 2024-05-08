@@ -18,6 +18,7 @@ const Seo: FC<SeoParams> = ({ title }) => {
 
   return (
     <>
+      <html lang="fr" />
       <title>
         {title} | {data?.site?.siteMetadata?.title}
       </title>
