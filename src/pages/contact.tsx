@@ -92,7 +92,7 @@ const Contact: FC = () => {
     showError: hasFormBeingSubmitted,
   });
 
-  const [recaptchaError, recaptchaErrorProps] = useValidation({
+  const [recaptchaError] = useValidation({
     isRequired: true,
     errorId: recaptchaErrorId,
     validateFn: validateRecaptcha,
@@ -296,9 +296,8 @@ const Contact: FC = () => {
             >
               <ReCAPTCHA
                 ref={recaptchaRef}
-                sitekey={process.env.RECAPTCHA_PUBLIC_KEY}
+                sitekey={process.env.RECAPTCHA_PUBLIC_KEY ?? ''}
                 onChange={onRecaptchaValueChange}
-                {...(recaptchaErrorProps as any)}
               />
             </ErrorContainer>
             <button
