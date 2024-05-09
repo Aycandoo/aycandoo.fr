@@ -18,9 +18,11 @@ const Seo: FC<SeoParams> = ({ title }) => {
 
   return (
     <>
+      <html lang="fr" />
       <title>
         {title} | {data?.site?.siteMetadata?.title}
       </title>
+      <link rel="preconnect" href="https://rsms.me/" />
       <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     </>
   );

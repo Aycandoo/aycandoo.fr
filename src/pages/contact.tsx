@@ -92,7 +92,7 @@ const Contact: FC = () => {
     showError: hasFormBeingSubmitted,
   });
 
-  const [recaptchaError, recaptchaErrorProps] = useValidation({
+  const [recaptchaError] = useValidation({
     isRequired: true,
     errorId: recaptchaErrorId,
     validateFn: validateRecaptcha,
@@ -266,7 +266,7 @@ const Contact: FC = () => {
             <div className="sm:col-span-2">
               <label
                 className="block pb-2 text-sm font-medium leading-6 text-gray-900"
-                htmlFor={firstNameId}
+                htmlFor={messageId}
               >
                 Message :
               </label>
@@ -296,9 +296,8 @@ const Contact: FC = () => {
             >
               <ReCAPTCHA
                 ref={recaptchaRef}
-                sitekey={process.env.RECAPTCHA_PUBLIC_KEY}
+                sitekey={process.env.RECAPTCHA_PUBLIC_KEY ?? ''}
                 onChange={onRecaptchaValueChange}
-                {...(recaptchaErrorProps as any)}
               />
             </ErrorContainer>
             <button
