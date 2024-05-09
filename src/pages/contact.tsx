@@ -266,7 +266,7 @@ const Contact: FC = () => {
             <div className="sm:col-span-2">
               <label
                 className="block pb-2 text-sm font-medium leading-6 text-gray-900"
-                htmlFor={firstNameId}
+                htmlFor={messageId}
               >
                 Message :
               </label>
