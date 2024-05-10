@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "colors";
+@import "code";
+@import "mixins";
+@import "post-cards";
+@import "post-card";
+@import "post";
+
+
+%date {
+  color: $date;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+
+  @include device-is('tablet') {
+    &__date {
+      font-size: 0.85rem;
+    }
+  }
+}

@@ -8,6 +8,7 @@ const navigation = [
   { name: 'Accueil', to: '/' },
   { name: 'Services', to: '/#offerings' },
   { name: "L'équipe", to: '/#team' },
+  { name: 'Blog', to: '/blog' },
   { name: 'Contact', to: '/contact' },
   // { name: 'Blog', to: '/' }, // <-- to reactivate later
 ];

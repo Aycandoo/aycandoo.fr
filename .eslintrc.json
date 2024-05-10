@@ -15,7 +15,11 @@
   "plugins": ["react"],
   "rules": {
     "@typescript-eslint/strict-boolean-expressions": "off",
-    "@typescript-eslint/no-misused-promises": "warn"
+    "@typescript-eslint/no-misused-promises": "warn",
+    "@typescript-eslint/no-confusing-void-expression": [
+      "error",
+      { "ignoreArrowShorthand": true, "ignoreVoidOperator": false }
+    ]
   },
   "settings": {
     "react": {
