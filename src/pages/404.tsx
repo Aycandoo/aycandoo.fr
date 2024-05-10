@@ -10,11 +10,11 @@ const NotFound: FC = () => {
       <Section title="" id="notFound" className="mb-0">
         <div className="flex flex-col gap-12 py-6 sm:flex-row">
           <StaticImage
-            className="max-w-80 rounded-xl"
+            className="hidden rounded-xl md:block"
             src="../images/404.jpg"
-            height={320}
-            width={320}
-            alt="pelle jaune à moitié enterrée sur le sable près de l'océan - source: pexels.com"
+            height={200}
+            width={200}
+            alt=""
           />
           <div className="flex flex-col justify-center">
             <h1 className="mb-10 text-4xl font-bold tracking-tight text-gray-900">
