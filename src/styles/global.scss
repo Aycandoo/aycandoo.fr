@@ -2,13 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "colors";
-@import "code";
-@import "mixins";
-@import "post-cards";
-@import "post-card";
-@import "post";
+@import 'colors';
+@import 'code';
+@import 'mixins';
+@import 'post-cards';
+@import 'post-card';
+@import 'post';
 
+.color-primary {
+  color: $primary;
+}
 
 %date {
   color: $date;
