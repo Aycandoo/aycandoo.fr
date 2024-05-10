@@ -343,4 +343,9 @@ const Contact: FC = () => {
 
 export default Contact;
 
-export const Head: HeadFC = () => <Seo title="Contact"></Seo>;
+export const Head: HeadFC = () => (
+  <Seo
+    title="Contact"
+    description="Besoin d'un renseignement ? Nous sommes là pour répondre à vos questions et discuter de vos projets. Contacter nous via notre formulaire de contact ou via notre adresse email contact@aycandoo.fr."
+  ></Seo>
+);
