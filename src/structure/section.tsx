@@ -31,12 +31,12 @@ const Section: FC<SectionParams> = ({
 
   return (
     <section id={id} className={classList}>
-      {headingLevel === 1 && (
+      {title && headingLevel === 1 && (
         <h1 className="text-center text-4xl  font-bold tracking-tight text-gray-900">
           {title}
         </h1>
       )}
-      {headingLevel === 2 && (
+      {title && headingLevel === 2 && (
         <h2 className="text-center text-4xl  font-bold tracking-tight text-gray-900">
           {title}
         </h2>
