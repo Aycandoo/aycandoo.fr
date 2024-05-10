@@ -12,10 +12,6 @@
   }
 }
 
-.color-primary {
-  color: #ffdd57;
-}
-
 .carousel-container {
   overflow: hidden;
   height: calc(var(--height) * 1px);

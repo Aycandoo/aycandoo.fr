@@ -15,4 +15,9 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <Seo title="Accueil"></Seo>;
+export const Head: HeadFC = () => (
+  <Seo
+    title="Accueil"
+    description="La société AYCANDOO a été cofondée par Jérémy Brochard et Céline Ung, deux développeurs fullstack expérimentés. Nous proposons des solutions sur mesure en conseil IT, en développement web et pour de l'hébergement."
+  ></Seo>
+);
