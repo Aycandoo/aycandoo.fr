@@ -8,7 +8,7 @@ import Offering from '../shared/offering';
 import OfferingsList from '../shared/offerings-list';
 import Team from '../shared/team';
 import Section from '../structure/section';
-import './home.css';
+import './home.scss';
 
 const Home: FC = () => {
   return (
