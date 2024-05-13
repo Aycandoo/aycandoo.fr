@@ -1,5 +1,5 @@
 import type { GatsbyConfig } from 'gatsby';
-import path from "node:path";
+import path from 'node:path';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config({

@@ -1,7 +1,9 @@
 import React, { type FC } from 'react';
-import { graphql, type PageProps } from 'gatsby';
-import Layout from '../../structure/layout';
-import PostCards from './post-cards';
+import { type HeadFC, graphql, type PageProps } from 'gatsby';
+import Layout from '../structure/layout';
+import PostCards from '../shared/post-cards';
+import Section from '../structure/section';
+import Seo from '../structure/seo';
 
 export interface MarkdownRemark {
   id: string;
@@ -27,12 +29,13 @@ const Index: FC<
     allMarkdownRemark: { edges: Array<{ node: MarkdownRemark }> };
   }>
 > = ({ data }) => {
-  console.log(data);
   const cards = data.allMarkdownRemark.edges.map((card) => card.node);
 
   return (
     <Layout>
-      <PostCards cards={cards} />
+      <Section title="Blog" id="blog" headingLevel={1}>
+        <PostCards cards={cards} />
+      </Section>
     </Layout>
   );
 };
@@ -65,3 +68,7 @@ export const query = graphql`
 `;
 
 export default Index;
+
+export const Head: HeadFC = () => (
+  <Seo title="Blog" description="Le blog"></Seo>
+);

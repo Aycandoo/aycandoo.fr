@@ -3,9 +3,9 @@ import { Link } from 'gatsby';
 
 import { sortBy, uniqBy } from 'lodash';
 
-import { type MarkdownRemark } from './index';
+import { type MarkdownRemark } from '../pages/blog';
 import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import PostCard from "./post-card";
+import PostCard from './post-card';
 
 interface PostCardsParams {
   cards: MarkdownRemark[];

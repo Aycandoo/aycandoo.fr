@@ -1,46 +1,27 @@
-import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import React, { type FC, type PropsWithChildren } from 'react';
+// import { graphql, useStaticQuery } from 'gatsby';
 // eslint-disable-next-line import/no-duplicates
-import { type FC } from 'react';
 import Layout from '../structure/layout';
+import { graphql } from 'gatsby';
 
-const BlogArticle: FC = () => {
-  const { markdownRemark } = data;
-  const { frontmatter, html, excerpt } = markdownRemark;
+type TeammateParams = PropsWithChildren<{
+  data: any;
+}>;
 
-  const postDate = frontmatter.date;
-  const dateTimeFormat = new Intl.DateTimeFormat('fr', { dateStyle: 'long' });
-  const formattedPostDate = dateTimeFormat.format(new Date(postDate));
-  const pathname = '/' + frontmatter.slug;
-  const image = frontmatter.illustration
-    ? frontmatter.illustration.childImageSharp.resize
-    : null;
-
+const BlogArticle: FC<TeammateParams> = ({ data }) => {
+  const post = data.markdownRemark;
   return (
-    <Layout
-      pageTitle={frontmatter.title}
-      pathname={pathname}
-      image={image}
-      description={excerpt}
-    >
-      <article className="post">
-        <header className="post__header">
-          <h1>{frontmatter.title}</h1>
-          <time dateTime={frontmatter.date} className="post__date">
-            {formattedPostDate}
-          </time>
-        </header>
-        <section
-          className="post"
-          dangerouslySetInnerHTML={{ __html: html }}
-        ></section>
-      </article>
+    <Layout>
+      <div>
+        <h1>{post.frontmatter.title}</h1>
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+      </div>
     </Layout>
   );
 };
 
-export const data = useStaticQuery(graphql`
-  query ($slug: String) {
+export const data = graphql`
+  query ($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       html
       excerpt
@@ -60,6 +41,6 @@ export const data = useStaticQuery(graphql`
       }
     }
   }
-`);
+`;
 
 export default BlogArticle;

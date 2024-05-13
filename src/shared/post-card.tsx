@@ -33,5 +33,5 @@ const PostCard: FC<PostCardParams> = ({
   );
 };
 
-      // <Img fluid={gatsyImage} alt="" />
+// <Img fluid={gatsyImage} alt="" />
 export default PostCard;

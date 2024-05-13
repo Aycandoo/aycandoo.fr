@@ -6,6 +6,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   actions,
 }) => {
   const { createPage } = actions;
+  const blogPostTemplate = path.resolve(`./src/shared/blog-article.tsx`);
   const result: any = await graphql(`
     query {
       allMarkdownRemark {
@@ -19,12 +20,14 @@ export const createPages: GatsbyNode['createPages'] = async ({
       }
     }
   `);
+
   result.data.allMarkdownRemark.edges.forEach(({ node }: { node: any }) => {
+    const slug = node.frontmatter.slug;
     createPage({
-      path: node.frontmatter.slug,
-      component: path.resolve(`./src/shared/blog-article.tsx`),
+      path: `blog/${slug}`,
+      component: blogPostTemplate,
       context: {
-        slug: node.frontmatter.slug,
+        slug,
       },
     });
   });
