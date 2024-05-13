@@ -1,11 +1,14 @@
-import React, { type FC, useEffect, useState } from 'react';
 import { Link } from 'gatsby';
-
+import React, { useEffect, useState, type FC } from 'react';
 import { sortBy, uniqBy } from 'lodash';
-
+import {
+  ChevronDownIcon,
+  ChevronRightIcon,
+  XMarkIcon,
+} from '@heroicons/react/24/outline';
 import { type MarkdownRemark } from '../pages/blog';
-import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import PostCard from './post-card';
+import { Transition } from '@headlessui/react';
 
 interface PostCardsParams {
   cards: MarkdownRemark[];
@@ -72,43 +75,60 @@ const PostCards: FC<PostCardsParams> = ({ cards }) => {
   };
 
   return (
-    <div className="post-cards">
-      <div className="post-cards__categories">
+    <div className="flex flex-col gap-12 px-6 lg:px-36 xl:px-60 2xl:px-96">
+      <div className="">
         <button
           type="button"
-          className="post-cards-categories__button"
+          className="mb-2"
           aria-pressed={openedFilterZone}
           onClick={() => toggleFilterZone()}
         >
           Filtrer par catégorie
-          <ChevronDownIcon className="h-12 w-12" />
+          {!openedFilterZone && (
+            <ChevronRightIcon className="m-auto ml-2 inline-block h-5 w-5" />
+          )}
+          {openedFilterZone && (
+            <ChevronDownIcon className="m-auto ml-2 inline-block h-5 w-5" />
+          )}
         </button>
-        {openedFilterZone && (
-          <div className="post-cards-categories__wrapper">
+
+        <Transition
+          show={openedFilterZone}
+          enter="transition-opacity duration-700"
+          enterFrom="opacity-0"
+          enterTo="opacity-100"
+          leave="transition-opacity duration-300"
+          leaveFrom="opacity-100"
+          leaveTo="opacity-0"
+        >
+          <div className="mt-2 flex flex-row flex-wrap gap-4">
             {categories.map((category) => (
               <button
                 key={category.name}
                 type="button"
                 onClick={() => selectCategory(category.name)}
                 aria-pressed={category.selected}
-                className={`post-cards-categories__category post-cards-categories__category--${category.selected ? 'selected' : 'no-selected'}`}
+                className={
+                  'flex flex-row gap-1 rounded p-2 ring-2 ' +
+                  (category.selected ? 'ring-[#ffdd57]' : 'ring-gray-950')
+                }
               >
                 <span>{category.name}</span>
-                {category.selected && <XMarkIcon className="h-12 w-12" />}
+                {category.selected && <XMarkIcon className="m-auto h-5 w-5" />}
               </button>
             ))}
           </div>
-        )}
+        </Transition>
       </div>
-      <div className="post-cards__main">
-        {displayedCards.map((card) => (
-          <Link key={card.frontmatter.slug} to={card.frontmatter.slug}>
+      <div className="-mx-4 grid grid-cols-3 2xl:grid-cols-4">
+        {displayedCards.map(({ frontmatter, excerpt }) => (
+          <Link key={frontmatter.slug} to={frontmatter.slug}>
             <PostCard
-              title={card.frontmatter.title}
-              date={card.frontmatter.date}
-              category={card.frontmatter.category}
-              excerpt={card.excerpt}
-              gatsyImage={card.frontmatter.illustration.childImageSharp.fluid}
+              title={frontmatter.title}
+              date={frontmatter.date}
+              category={frontmatter.category}
+              excerpt={excerpt}
+              gatsyImage={frontmatter.illustration.childImageSharp.fluid}
             />
           </Link>
         ))}
