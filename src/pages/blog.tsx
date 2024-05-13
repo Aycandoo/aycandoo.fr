@@ -15,9 +15,7 @@ export interface MarkdownRemark {
     title: string;
     illustration: {
       childImageSharp: {
-        fluid: {
-          base64: string;
-        };
+        gatsbyImageData: any;
       };
     };
   };
@@ -51,9 +49,7 @@ export const query = graphql`
             date
             illustration {
               childImageSharp {
-                fluid(maxWidth: 800) {
-                  ...GatsbyImageSharpFluid
-                }
+                gatsbyImageData
               }
             }
             slug

@@ -128,7 +128,9 @@ const PostCards: FC<PostCardsParams> = ({ cards }) => {
               date={frontmatter.date}
               category={frontmatter.category}
               excerpt={excerpt}
-              gatsyImage={frontmatter.illustration.childImageSharp.fluid}
+              gatsbyImage={
+                frontmatter.illustration.childImageSharp.gatsbyImageData
+              }
             />
           </Link>
         ))}
