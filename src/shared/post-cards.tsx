@@ -75,7 +75,7 @@ const PostCards: FC<PostCardsParams> = ({ cards }) => {
   };
 
   return (
-    <div className="flex flex-col gap-12 px-6 lg:px-36 xl:px-60 2xl:px-96">
+    <div className="flex flex-col gap-12 px-6 lg:px-36 xl:px-60 2xl:px-[20%]">
       <div className="">
         <button
           type="button"
@@ -120,7 +120,7 @@ const PostCards: FC<PostCardsParams> = ({ cards }) => {
           </div>
         </Transition>
       </div>
-      <div className="-mx-4 grid grid-cols-3 2xl:grid-cols-4">
+      <div className="-mx-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4">
         {displayedCards.map(({ frontmatter, excerpt }) => (
           <Link key={frontmatter.slug} to={frontmatter.slug}>
             <PostCard
