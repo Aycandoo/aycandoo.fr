@@ -31,11 +31,14 @@ const createEmailAPIInstance = (apiKey: string): TransactionalEmailsApi => {
 
 const createEmailInstance = (emailParams: EmailParams): SendSmtpEmail => {
   const { templateId, params, to } = emailParams;
+  const { email, firstname, lastname } = to;
+  const name = `${firstname} ${lastname}`.trim();
+
   const sendSmtpEmail = new SendSmtpEmail();
   sendSmtpEmail.to = [
     {
-      email: to.email,
-      name: `${to.firstname} ${to.lastname}`,
+      email,
+      name: name.length > 0 ? name : email,
     },
   ];
   sendSmtpEmail.templateId = templateId;
@@ -72,7 +75,7 @@ export const sendConfirmationEmail = (
 ): void => {
   if (!CONFIRMATION_EMAIL_TEMPLATE_ID) {
     console.error(
-      `CONFIRMATION_EMAIL_TEMPLATE_ID is undefined: cannot send request email for ${emailId}`
+      `CONFIRMATION_EMAIL_TEMPLATE_ID is undefined: cannot send confirmation email for ${emailId}`
     );
     return;
   }
