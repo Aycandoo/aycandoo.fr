@@ -1,4 +1,5 @@
 import type { HeadFC, PageProps } from 'gatsby';
+import 'prismjs/themes/prism-okaidia.css';
 import React from 'react';
 import Layout from '../structure/layout';
 import Seo from '../structure/seo';

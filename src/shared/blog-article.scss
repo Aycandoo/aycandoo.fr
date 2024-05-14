@@ -1,0 +1,47 @@
+.blog-article {
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-top: 2rem;
+    margin-bottom: 0.875rem;
+  }
+  
+  p {
+    margin-bottom: 0.875rem;
+  }
+
+  ul {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0.875rem;
+    margin-left: 2rem;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    list-style-position: outside;
+    list-style-type: disc;
+    list-style-image: none;
+
+    li {
+      margin-bottom: calc(0.875rem / 2);
+    }
+  }
+
+  a {
+    color: #ffdd57;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration-line: underline;
+    }
+  }
+}

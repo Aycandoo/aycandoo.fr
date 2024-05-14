@@ -70,13 +70,15 @@ const config: GatsbyConfig = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-source-filesystem`,
+            resolve: `gatsby-remark-images`,
             options: {
-              name: `content`,
-              path: path.join(__dirname, 'src', 'assets'),
+              maxWidth: 590,
             },
           },
-          `gatsby-transformer-remark`,
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {},
+          },
         ],
       },
     },
