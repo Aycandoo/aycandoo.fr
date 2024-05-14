@@ -20,7 +20,7 @@ const PostCard: FC<PostCardParams> = ({
   const formattedPostDate = dateTimeFormat.format(new Date(date));
 
   return (
-    <article className="flex h-full flex-col justify-between gap-2 p-4">
+    <article className="flex h-full flex-col justify-between gap-2 px-4 py-6 hover:bg-gray-100">
       <GatsbyImage image={gatsbyImage} alt="" />
       <header className="flex flex-col gap-2">
         <div className="color-primary font-bold">{category}</div>
