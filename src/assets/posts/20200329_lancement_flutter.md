@@ -6,7 +6,7 @@ slug: "lancement-de-flutter"
 illustration: "../images/posts/post_cards/hands_typing.jpg"
 ---
 
-Après avoir [installé Flutter sur mon Macbook](https://celineung.github.com/blog/installation-de-flutter-sur-macos), la deuxième étape est de pouvoir lancer une application sur mon téléphone.
+Après avoir [installé Flutter sur mon Macbook](https://aycandoo.fr/blog/installation-de-flutter-sur-macos), la deuxième étape est de pouvoir lancer une application sur mon téléphone.
 
 ## Préparer le lancement dans un navigateur web
 

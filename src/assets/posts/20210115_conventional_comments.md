@@ -17,7 +17,7 @@ Au cours de mes missions, j'ai croisé plusieurs façon d'intégrer du nouveau c
 - être directement mergés dans la branche de travail principale
 - ou bien être mergés après validation de collègues qui ne leur ont pas accordé ni l'attention ni le temps nécéssaire
 
-> Attention, si vous codez sans pensez à votre relecteur (grand nombre de fichiers, inclusion de nouvelles fonctionnalités hors-scope, refactorisation tunnel qui peuvent être faits à postériori, etc), vous comprendrez que la revue de code ne sera pas simple! Pensez à faire des commits atomiques, avec des noms de commits parlant (cf: [comment écrire un message de commit Git](https://celineung.github.io/blog/message-de-commit-git)) et un enchaînement de commits qui traduit votre chemin de pensée.
+> Attention, si vous codez sans pensez à votre relecteur (grand nombre de fichiers, inclusion de nouvelles fonctionnalités hors-scope, refactorisation tunnel qui peuvent être faits à postériori, etc), vous comprendrez que la revue de code ne sera pas simple! Pensez à faire des commits atomiques, avec des noms de commits parlant (cf: [comment écrire un message de commit Git](https://aycandoo.fr/blog/message-de-commit-git)) et un enchaînement de commits qui traduit votre chemin de pensée.
 
 Certaines personnes pensent que les revues de code ne sont pas nécessaires et sont une perte de temps.
 

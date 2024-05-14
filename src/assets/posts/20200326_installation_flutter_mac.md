@@ -108,4 +108,4 @@ Doctor summary (to see all details, run flutter doctor -v):
 [✓] Android toolchain - develop for Android devices (Android SDK version 29.0.3)
 ```
 
-Prochaine étape: [démarrer ma première application Flutter sur mon téléphone Android](https://celineung.github.com/blog/lancement-de-flutter) !
+Prochaine étape: [démarrer ma première application Flutter sur mon téléphone Android](https://aycandoo.fr/blog/lancement-de-flutter) !
