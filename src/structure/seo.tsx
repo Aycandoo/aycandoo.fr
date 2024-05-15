@@ -25,6 +25,7 @@ const Seo: FC<SeoParams> = ({ title, pathname, description, children }) => {
       <meta name="og:title" content={seo.title} />
       <meta name="og:description" content={seo.description} />
       <meta name="og:image" content={seo.image} />
+      <meta name="og:url" content={seo.url} />
       {children}
       <link rel="preconnect" href="https://rsms.me/" />
       <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
