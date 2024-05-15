@@ -80,7 +80,7 @@ Si le titre du commit ne suffit pas à expliquer le changement induit, il est po
 
 Comment? Lorsque l'on effectue un commit avec la commande `git commit`, un éditeur de texte s'ouvre dans le terminal. La première ligne écrite constitue le titre du commit. Il suffit alors de sauter de ligne deux fois pour commencer le body (c'est-à-dire qu'il faut laisser une ligne vide entre le titre et le body). Le commit ressemble alors à:
 
-```
+```shell
 Handle Konami code
 
 When user press a combination of keyboard keys, a youtube video about our brand will start playing.
@@ -103,7 +103,7 @@ Cette [convention](https://www.conventionalcommits.org/en/v1.0.0/) établie un c
 
 Elle adopte un nom de commit sous la forme:
 
-```
+```txt
 <type>[optional scope]: <description>
 
 [optional body]
@@ -153,7 +153,7 @@ Si je reprend la convention d'Angular:
 
 Cela donne un historique de commits de la forme:
 
-```
+```txt
 * 1a1e5af - style: fix ‘my-component‘ indentation
 * dd0dc95 - docs: correct spelling for ‘my-component‘
 * 8cc4499 - feat: create ‘my-component‘
