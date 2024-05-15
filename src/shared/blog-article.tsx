@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import React, { type FC, type PropsWithChildren } from 'react';
 import { type MarkdownRemark } from '../pages/blog';
 import Layout from '../structure/layout';
@@ -27,16 +27,26 @@ const BlogArticle: FC<BlogArticleParams> = ({ data }) => {
           headingLevel={1}
           className="items-start"
         >
-          <header className="mb-12 w-full border-b-2 pb-4">
-            <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900">
-              {post.frontmatter.title}
-            </h1>
-            <time
-              dateTime={post.frontmatter.date}
-              className="text-xs uppercase text-gray-600"
+          <header className="mb-12 w-full ">
+            <div className="border-b-2 pb-4">
+              <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900">
+                {post.frontmatter.title}
+              </h1>
+              <time
+                dateTime={post.frontmatter.date}
+                className="text-xs uppercase text-gray-600"
+              >
+                {formattedPostDate}
+              </time>
+            </div>
+            <button
+              onClick={() => {
+                void navigate(-1);
+              }}
+              className="color-primary mt-4 text-base font-bold hover:underline"
             >
-              {formattedPostDate}
-            </time>
+              Revenir en arrière
+            </button>
           </header>
           <div
             className="w-full"
