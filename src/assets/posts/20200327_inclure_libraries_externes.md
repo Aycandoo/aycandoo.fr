@@ -29,7 +29,7 @@ Les solutions abordées dans cet article seront:
 
 La solution la plus simple pour l'exemple étudié ici serait de spécifier directement l'emplacement du module dans le package.json:
 
-```
+```json
 // project1/package.json
 "devDependencies": { 
   "ui-components": "file:../ui-components" 
@@ -46,7 +46,7 @@ La deuxième piste explorée est l'utilisation de npm-link.
 
 Il s'utilise de la manière suivante:
 
-```
+```shell
 $ cd ui-components
 $ npm link
 $ cd ../project1
@@ -55,7 +55,7 @@ $ npm link ui-components
 ```
 La dernière commande npm link ui-components affiche sur la console:
 
-```
+```txt
 /path/to/project1/node_modules/ui-components -> /usr/local/lib/node_modules/ui-components -> /path/to/ui-components
 ```
 
@@ -63,14 +63,14 @@ Il est explicite que derrière ces commandes, npm link crée un lien symbolique 
 
 Il est possible de faire afficher clairement ce lien symbolique:
 
-```
+```shell
 $ ls -al $(npm root -g)
 lrwxr-xr-x   1 username  admin    59B Mar 18 16:58 ui-components@ -> /path/to/ui-components
 ```
 
 Ce n'est pas terminé, il faut définir dans le package.json de project1 la dépendance vers ui-components:
 
-```
+```json
 // project1/package.json
 "devDependencies": {
   "ui-components": "*"
@@ -89,13 +89,13 @@ npm-workspace est en quelque sorte un wrapper de npm link: il permet de central
 
 Il s'installe de manière globale:
 
-```
+```shell
 $ npm install -g npm-workspace
 ```
 
 En considérant les mêmes projets (ui-components et project1), il suffit de créer un fichier workspace.json dans project1 contenant le nom du module et son chemin:
 
-```
+```json
 // project1/workspace.json
 {
   "links": {
@@ -106,7 +106,7 @@ En considérant les mêmes projets (ui-components et project1), il suffit de cr�
 
 Comme précédemment, il faut indiquer le nom de notre module dans le package.json:
 
-```
+```json
 // project1/package.json
 "devDependencies": {
   "ui-components": "*"
@@ -115,7 +115,7 @@ Comme précédemment, il faut indiquer le nom de notre module dans le package.js
 
 Puis il suffit de lancer la commande npm-workspace install qui crée nos liens symboliques puis lance un npm install des autres modules:
 
-```
+```shell
 $ npm-workspace install
 ```
 
@@ -127,7 +127,7 @@ Toutefois cela nécessite que ui-components soit dans un repo entièrement sépa
 
 Si j'avait mis les deux dans des repos séparés, il aurait suffit de modifier le package.json de cette manière:
 
-```
+```json
 // project1/package.json
 "devDependencies": { 
   "ui-components": "github:username/ui-components#my-branch-name" 

@@ -14,7 +14,7 @@ Pour commencer, il faut récupérer le SDK de Flutter. L'installation de Flutter
 
 Pour récupérer Flutter, le plus simple est de cloner le repository git:
 
-```
+```shell
 # Dans /workspace
 $ git clone https://github.com/flutter/flutter.git -b stable
 ```
@@ -23,26 +23,26 @@ Mais il est aussi possible de le télécharger ici https://flutter.dev/docs/deve
 
 Afin de pouvoir utiliser Flutter en ligne de commande, il faut le déclarer soit dans $HOME/.bash_profile ou dans $HOME/.bashrc:
 
-```
+```bash
 # Dans$HOME/.bash_profile
 export FLUTTER_PATH=/workspace/flutter/bin export PATH="$PATH:$FLUTTER_PATH"
 ```
 
 Rafraichir notre session avec la commande:
 
-```
+```shell
 $HOME/.bash_profile
 ```
 
 `flutter doctor` peut alors être utilisée. Il s'agit d'une commande qui permet de savoir si toutes les dépendances requises sont bien installées:
 
-```
+```shell
 $ flutter doctor
 ```
 
 La réponse obtenue à l'écran nous amène à l'étape suivante de l'installation: le setup d'Android Studio.
 
-```
+```shell
 Doctor summary (to see all details, run flutter doctor -v):
 [✓] Flutter (Channel stable, v1.12.13+hotfix.8, on Mac OS X 10.15.3 19D76,
     locale en-FR)
@@ -71,7 +71,7 @@ Cette étape où nous devons spécifier un SDK antérieur à la dernière versio
 
 A l'état actuel, Flutter ne détectera pas encore le SDK:
 
-```
+```shell
 $ flutter doctor
 
 Doctor summary (to see all details, run flutter doctor -v):
@@ -83,7 +83,7 @@ Doctor summary (to see all details, run flutter doctor -v):
 
 Il faut encore déclarer nos variable d'environnement dans notre $HOME/.bash_profile. Ce qui abouti au fichier suivant:
 
-```
+```bash
 # Dans$HOME/.bash_profile
 export FLUTTER_PATH=/workspace/flutter/bin export ANDROID_HOME=/Users/celine/Library/Android/sdk export PATH="$PATH:$FLUTTER_PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
 ```
@@ -96,13 +96,13 @@ export FLUTTER_PATH=/workspace/flutter/bin export ANDROID_HOME=/Users/celine/Lib
 
 Exécuter ensuite la commande suivante pour accepter les licenses:
 
-```
+```shell
 $ flutter doctor --android-licenses
 ```
 
 Et voilà! Flutter est maintenant configuré correctement. flutter doctor confirme que l'installation s'est bien passé:
 
-```
+```shell
 Doctor summary (to see all details, run flutter doctor -v):
 [✓] Flutter (Channel beta, v1.15.17, on Mac OS X 10.15.3 19D76, locale en-FR)
 [✓] Android toolchain - develop for Android devices (Android SDK version 29.0.3)

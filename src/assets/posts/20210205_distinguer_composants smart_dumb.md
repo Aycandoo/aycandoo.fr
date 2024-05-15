@@ -32,7 +32,7 @@ L'appel au composant dans le premier cas s'écrira de la manière suivante dans 
 
 Et dans le deuxième cas (affichage du score total de l'utilisateur):
 
-```
+```handlebars
 <Score @value={{@user.score}} />
 ```
 
