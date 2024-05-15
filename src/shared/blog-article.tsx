@@ -1,15 +1,16 @@
-import { graphql, navigate } from 'gatsby';
-import React, { type FC, type PropsWithChildren } from 'react';
+import { type HeadFC, type HeadProps, graphql, navigate } from 'gatsby';
+import React, { type FC } from 'react';
 import { type MarkdownRemark } from '../pages/blog';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
+import Seo from '../structure/seo';
 import './blog-article.scss';
 
-type BlogArticleParams = PropsWithChildren<{
+export interface BlogArticleParams {
   data: {
     markdownRemark: MarkdownRemark;
   };
-}>;
+}
 
 const BlogArticle: FC<BlogArticleParams> = ({ data }) => {
   const post = data.markdownRemark;
@@ -73,3 +74,13 @@ export const data = graphql`
 `;
 
 export default BlogArticle;
+
+export const Head: HeadFC<MarkdownRemark> = (
+  props: HeadProps<MarkdownRemark>
+) => (
+  <Seo
+    title={props.data.markdownRemark.frontmatter.title}
+    description={props.data.markdownRemark.excerpt}
+    pathname={props.location.pathname}
+  ></Seo>
+);

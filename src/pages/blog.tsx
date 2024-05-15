@@ -6,6 +6,7 @@ import Section from '../structure/section';
 import Seo from '../structure/seo';
 
 export interface MarkdownRemark {
+  markdownRemark: any; // <-- TODO: to remove since later its a workaround
   id: string;
   html: string;
   frontmatter: {
