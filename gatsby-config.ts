@@ -9,6 +9,7 @@ require('dotenv').config({
 const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Aycandoo.fr',
+    image: '/images/icon.png',
     siteUrl: 'https://aycandoo.fr',
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.

@@ -1,7 +1,7 @@
+import { type HeadProps, graphql, type HeadFC, type PageProps } from 'gatsby';
 import React, { type FC } from 'react';
-import { type HeadFC, graphql, type PageProps } from 'gatsby';
-import Layout from '../structure/layout';
 import PostCards from '../shared/post-cards';
+import Layout from '../structure/layout';
 import Section from '../structure/section';
 import Seo from '../structure/seo';
 
@@ -65,6 +65,10 @@ export const query = graphql`
 
 export default Index;
 
-export const Head: HeadFC = () => (
-  <Seo title="Blog" description="Le blog"></Seo>
+export const Head: HeadFC = (props: HeadProps) => (
+  <Seo
+    title="Blog"
+    description="Le blog"
+    pathname={props.location.pathname}
+  ></Seo>
 );
