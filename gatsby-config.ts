@@ -72,9 +72,7 @@ const config: GatsbyConfig = {
         plugins: [
           {
             resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 590,
-            },
+            options: {},
           },
           {
             resolve: `gatsby-remark-prismjs`,
