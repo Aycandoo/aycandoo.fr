@@ -38,19 +38,17 @@ const PostCards: FC<PostCardsParams> = ({ cards, filters = [] }) => {
     );
 
     if (filters && filters.length > 0) {
-      const upperCasedFilters = filters.map((f) => f.toUpperCase());
-      const updatedCategories = filteredCategories.map((category) => {
-        if (upperCasedFilters.includes(category.name)) {
-          category.selected = true;
-        }
-        return category;
-      });
+      const updatedCategories = applyFilters(filteredCategories, filters);
       setCategories(updatedCategories);
-      filterCardsByCategories(upperCasedFilters);
     } else {
       setCategories(filteredCategories);
     }
   }, [cards, filters]);
+
+  useEffect(() => {
+    const selectedCategoryNames = getSelectedCategoryNames();
+    filterCardsByCategories(selectedCategoryNames);
+  }, [categories]);
 
   const selectCategory = async (categoryToUpdate: string): Promise<void> => {
     const updatedCategories = categories.map((category) => {
@@ -61,17 +59,39 @@ const PostCards: FC<PostCardsParams> = ({ cards, filters = [] }) => {
     });
     setCategories(updatedCategories);
 
-    const selectedCategoryNames = getSelectedCategoryNames();
-    filterCardsByCategories(selectedCategoryNames);
-
     if (categories.filter((c) => c.selected).length > 0) {
-      const queryParams = selectedCategoryNames
-        .map((c) => `filters=${c.toLowerCase()}`)
-        .join('&');
-      await navigate(`?${queryParams}`, { replace: true });
+      await navigate(getSelectedCategoriesAsQueryParams(categories), {
+        replace: true,
+      });
     } else {
       await navigate('', { replace: true });
     }
+  };
+
+  const applyFilters = (
+    categories: Category[],
+    filters: string[]
+  ): Category[] => {
+    const upperCasedFilters = filters.map((f) => f.toUpperCase());
+    const updatedCategories = categories.map((category) => {
+      if (upperCasedFilters.includes(category.name)) {
+        category.selected = true;
+      }
+      return category;
+    });
+    return updatedCategories;
+  };
+
+  const getSelectedCategoriesAsQueryParams = (
+    categories: Category[]
+  ): string => {
+    const queryParams = categories
+      .filter((c) => c.selected)
+      .map((c) => c.name)
+      .map((c) => `filters=${c.toLowerCase()}`)
+      .join('&');
+
+    return `?${queryParams}`;
   };
 
   const getSelectedCategoryNames = (): string[] => {
@@ -93,10 +113,6 @@ const PostCards: FC<PostCardsParams> = ({ cards, filters = [] }) => {
     setDisplayedCards(updatedCards);
   };
 
-  const toggleFilterZone = (): void => {
-    setOpenedFilterZone(!openedFilterZone);
-  };
-
   return (
     <>
       <div>
@@ -104,7 +120,7 @@ const PostCards: FC<PostCardsParams> = ({ cards, filters = [] }) => {
           type="button"
           className="mb-2 font-bold"
           aria-pressed={openedFilterZone}
-          onClick={() => toggleFilterZone()}
+          onClick={() => setOpenedFilterZone(!openedFilterZone)}
         >
           Filtrer par catégorie
           {!openedFilterZone && (
