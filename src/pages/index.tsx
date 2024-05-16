@@ -1,10 +1,10 @@
 import type { HeadFC, HeadProps, PageProps } from 'gatsby';
 import 'prismjs/themes/prism-okaidia.css';
 import React from 'react';
-import Layout from '../structure/layout';
-import Seo from '../structure/seo';
+import Layout from '../components/structure/layout';
+import Seo from '../components/structure/seo';
 import '../styles/global.scss';
-import Home from './home';
+import Home from '../components/home/home';
 
 const IndexPage: React.FC<PageProps> = () => {
   return (

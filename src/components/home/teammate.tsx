@@ -29,7 +29,7 @@ const Teammate: FC<TeammateParams> = ({
           <OutboundLink href={linkedinProfile}>
             <StaticImage
               height={25}
-              src="../images/linkedin-logo.png"
+              src="../../images/linkedin-logo.png"
               alt="linkedin-link"
             />
           </OutboundLink>

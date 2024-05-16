@@ -46,7 +46,7 @@ const Header: FC = () => {
               <StaticImage
                 className=""
                 height={40}
-                src="../images/aycandoo-color-logo.svg"
+                src="../../images/aycandoo-color-logo.svg"
                 alt=""
               />
               <span className="sr-only">{data?.site?.siteMetadata?.title}</span>
@@ -100,7 +100,7 @@ const Header: FC = () => {
                   <StaticImage
                     className=""
                     height={40}
-                    src="../images/aycandoo-black-logo.svg"
+                    src="../../images/aycandoo-black-logo.svg"
                     alt=""
                   />
                   <span className="sr-only">

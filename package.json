@@ -1,6 +1,6 @@
 {
   "name": "aycandoo.fr",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "description": "aycandoo.fr",
   "author": "Jérémy Brochard",
@@ -50,6 +50,7 @@
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-sass": "^6.13.1",
     "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-plugin-sitemap": "^6.13.1",
     "gatsby-remark-images": "^7.13.1",
     "gatsby-remark-prismjs": "^7.13.1",
     "gatsby-source-filesystem": "^5.13.1",

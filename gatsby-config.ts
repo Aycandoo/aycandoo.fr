@@ -81,6 +81,30 @@ const config: GatsbyConfig = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+        }
+      `,
+        serialize: ({ path }: { path: string }) => {
+          return {
+            url: path,
+          };
+        },
+      },
+    },
   ],
 };
 

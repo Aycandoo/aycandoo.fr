@@ -13,7 +13,7 @@ const Team: FC = () => {
       >
         <StaticImage
           className="rounded-3xl"
-          src="../images/team/jeremy.jpg"
+          src="../../images/team/jeremy.jpg"
           height={250}
           width={250}
           alt=""
@@ -27,7 +27,7 @@ const Team: FC = () => {
       >
         <StaticImage
           className="rounded-3xl"
-          src="../images/team/celine.png"
+          src="../../images/team/celine.png"
           height={250}
           width={250}
           alt=""
