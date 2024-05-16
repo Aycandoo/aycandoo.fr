@@ -6,7 +6,7 @@ import Layout from '../structure/layout';
 import Section from '../structure/section';
 import Seo from '../structure/seo';
 
-const Index: FC<
+const Blog: FC<
   PageProps<{
     allMarkdownRemark: { edges: Array<{ node: MarkdownRemark }> };
   }>
@@ -54,7 +54,7 @@ export const query = graphql`
   }
 `;
 
-export default Index;
+export default Blog;
 
 export const Head: HeadFC = (props: HeadProps) => (
   <Seo
