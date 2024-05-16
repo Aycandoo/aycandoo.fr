@@ -11,8 +11,8 @@ const Blog: FC<
   PageProps<{
     allMarkdownRemark: { edges: Array<{ node: MarkdownRemark }> };
   }>
-> = ({ data }) => {
-  const filters = useQueryParams('filters');
+> = ({ data, location }) => {
+  const filters = useQueryParams('filters', location.search);
   const cards = data.allMarkdownRemark.edges.map((card) => card.node);
 
   return (

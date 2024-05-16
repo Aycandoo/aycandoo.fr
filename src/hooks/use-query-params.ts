@@ -1,4 +1,4 @@
-export const useQueryParams = (key: string): string[] => {
-  const queryParams = new URLSearchParams(window.location.search);
+export const useQueryParams = (key: string, searchParams: string): string[] => {
+  const queryParams = new URLSearchParams(searchParams);
   return queryParams.getAll(key);
 };
