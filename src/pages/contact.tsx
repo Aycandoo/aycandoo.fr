@@ -1,20 +1,20 @@
 import type { HeadFC, HeadProps } from 'gatsby';
 import React, {
-  type FC,
-  type FormEvent,
   useEffect,
   useRef,
   useState,
+  type FC,
+  type FormEvent,
 } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import ErrorContainer from '../components/shared/error-container';
 import { sendContactForm } from '../data/contact-data';
 import useUniqueIds from '../hooks/use-unique-ids';
 import useValidation from '../hooks/use-validation';
 import { type ContactForm } from '../models/contact-form';
-import ErrorContainer from '../shared/error-container';
-import Layout from '../structure/layout';
-import Section from '../structure/section';
-import Seo from '../structure/seo';
+import Layout from '../components/structure/layout';
+import Section from '../components/structure/section';
+import Seo from '../components/structure/seo';
 import {
   validateEmail,
   validateNonEmptyField,

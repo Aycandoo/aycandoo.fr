@@ -1,9 +1,9 @@
 import { Link, type HeadFC, type HeadProps } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { type FC } from 'react';
-import Layout from '../structure/layout';
-import Section from '../structure/section';
-import Seo from '../structure/seo';
+import Layout from '../components/structure/layout';
+import Section from '../components/structure/section';
+import Seo from '../components/structure/seo';
 
 const NotFound: FC = () => {
   return (

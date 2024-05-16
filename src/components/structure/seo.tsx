@@ -1,5 +1,5 @@
 import React, { type FC, type PropsWithChildren } from 'react';
-import { useSiteMetadata } from '../hooks/use-site-metadata';
+import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 export type SeoParams = PropsWithChildren<{
   title: string;

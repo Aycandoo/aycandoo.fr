@@ -2,10 +2,10 @@ import { graphql, type HeadFC, type HeadProps, type PageProps } from 'gatsby';
 import React, { type FC } from 'react';
 import { useQueryParams } from '../hooks/use-query-params';
 import { type MarkdownRemark } from '../models/markdown-remark';
-import PostCards from '../shared/post-cards';
-import Layout from '../structure/layout';
-import Section from '../structure/section';
-import Seo from '../structure/seo';
+import PostCards from '../components/blog/post-cards';
+import Layout from '../components/structure/layout';
+import Section from '../components/structure/section';
+import Seo from '../components/structure/seo';
 
 const Blog: FC<
   PageProps<{

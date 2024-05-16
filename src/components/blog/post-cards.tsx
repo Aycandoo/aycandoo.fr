@@ -7,7 +7,7 @@ import {
 import { Link, navigate } from 'gatsby';
 import { sortBy, uniqBy } from 'lodash';
 import React, { useEffect, useState, type FC } from 'react';
-import { type MarkdownRemark } from '../models/markdown-remark';
+import { type MarkdownRemark } from '../../models/markdown-remark';
 import PostCard from './post-card';
 
 interface PostCardsParams {

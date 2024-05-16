@@ -4,7 +4,7 @@ import Layout from '../structure/layout';
 import Section from '../structure/section';
 import Seo from '../structure/seo';
 import './blog-article.scss';
-import { type MarkdownRemark } from '../models/markdown-remark';
+import { type MarkdownRemark } from '../../models/markdown-remark';
 
 export interface BlogArticleParams {
   data: {

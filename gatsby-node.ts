@@ -6,7 +6,9 @@ export const createPages: GatsbyNode['createPages'] = async ({
   actions,
 }) => {
   const { createPage } = actions;
-  const blogPostTemplate = path.resolve(`./src/shared/blog-article.tsx`);
+  const blogPostTemplate = path.resolve(
+    `./src/components/blog/blog-article.tsx`
+  );
   const result: any = await graphql(`
     query {
       allMarkdownRemark {

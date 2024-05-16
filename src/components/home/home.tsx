@@ -4,11 +4,11 @@ import {
   Square3Stack3DIcon,
 } from '@heroicons/react/24/outline';
 import React, { type FC } from 'react';
-import Offering from '../shared/offering';
-import OfferingsList from '../shared/offerings-list';
-import Team from '../shared/team';
 import Section from '../structure/section';
 import './home.scss';
+import Offering from './offering';
+import OfferingsList from './offerings-list';
+import Team from './team';
 
 const Home: FC = () => {
   return (
