@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useState,
 } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 export type SectionParams = PropsWithChildren<{
   id: string;
@@ -20,24 +21,24 @@ const Section: FC<SectionParams> = ({
   children,
 }) => {
   const [classList, setClassList] = useState(
-    'mb-48 flex w-full scroll-mt-24 flex-col items-center gap-4 px-6 lg:px-16 2xl:px-32 py-8 lg:px-8'
+    'flex flex-col w-full scroll-mt-20 items-center gap-4 px-6 pt-12 pb-8 mb-48 lg:px-16 2xl:px-32'
   );
 
   useEffect(() => {
     if (className) {
-      setClassList((list) => `${list} ${className}`);
+      setClassList((list) => twMerge(list, className));
     }
   }, [className]);
 
   return (
     <section id={id} className={classList}>
       {title && headingLevel === 1 && (
-        <h1 className="text-center text-4xl  font-bold tracking-tight text-gray-900">
+        <h1 className="text-center text-4xl font-bold tracking-tight text-gray-900">
           {title}
         </h1>
       )}
       {title && headingLevel === 2 && (
-        <h2 className="text-center text-4xl  font-bold tracking-tight text-gray-900">
+        <h2 className="text-center text-4xl font-bold tracking-tight text-gray-900">
           {title}
         </h2>
       )}

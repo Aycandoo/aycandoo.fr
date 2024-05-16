@@ -1,4 +1,4 @@
-import type { HeadFC } from 'gatsby';
+import type { HeadFC, HeadProps } from 'gatsby';
 import React, {
   type FC,
   type FormEvent,
@@ -343,9 +343,10 @@ const Contact: FC = () => {
 
 export default Contact;
 
-export const Head: HeadFC = () => (
+export const Head: HeadFC = (props: HeadProps) => (
   <Seo
     title="Contact"
     description="Besoin d'un renseignement ? Nous sommes là pour répondre à vos questions et discuter de vos projets. Contacter nous via notre formulaire de contact ou via notre adresse email contact@aycandoo.fr."
+    pathname={props.location.pathname}
   ></Seo>
 );

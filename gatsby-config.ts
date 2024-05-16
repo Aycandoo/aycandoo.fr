@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from 'gatsby';
+import path from 'node:path';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config({
@@ -8,6 +9,7 @@ require('dotenv').config({
 const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Aycandoo.fr',
+    image: '/images/icon.png',
     siteUrl: 'https://aycandoo.fr',
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -15,7 +17,7 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    'gatsby-plugin-postcss',
+    `gatsby-plugin-sass`,
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -55,6 +57,28 @@ const config: GatsbyConfig = {
           head: true,
           respectDNT: true,
         },
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `markdown-pages`,
+        path: path.join(__dirname, 'src', 'assets'),
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {},
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+            options: {},
+          },
+        ],
       },
     },
   ],

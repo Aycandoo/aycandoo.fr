@@ -1,8 +1,8 @@
+import { Link, type HeadFC, type HeadProps } from 'gatsby';
+import { StaticImage } from 'gatsby-plugin-image';
 import React, { type FC } from 'react';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
-import { type HeadFC, Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
 import Seo from '../structure/seo';
 
 const NotFound: FC = () => {
@@ -40,9 +40,10 @@ const NotFound: FC = () => {
 
 export default NotFound;
 
-export const Head: HeadFC = () => (
+export const Head: HeadFC = (props: HeadProps) => (
   <Seo
     title="Page introuvable"
     description="La page que vous recherchez n'existe pas ou a été déplacé. Vous pouvez cliquer sur le bouton pour revenir à l'accueil."
+    pathname={props.location.pathname}
   ></Seo>
 );

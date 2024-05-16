@@ -1,7 +1,7 @@
 import React, { type FC, type PropsWithChildren } from 'react';
 import Header from './header';
 import Footer from './footer';
-import './layout.css';
+import './layout.scss';
 
 export type LayoutParams = PropsWithChildren<{
   headingLevel?: number;

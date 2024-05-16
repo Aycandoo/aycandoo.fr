@@ -1,5 +1,5 @@
 import React, { type FC, type PropsWithChildren } from 'react';
-import './error-container.css';
+import './error-container.scss';
 
 type ErrorContainerParams = PropsWithChildren<{
   errorMessage: string | null;
