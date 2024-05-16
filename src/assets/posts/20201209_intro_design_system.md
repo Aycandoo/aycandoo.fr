@@ -1,7 +1,7 @@
 ---
 title: "Introduction et retour d'expérience sur les design system"
 date: "2020-12-09"
-category: "DESIGN SYSTEM"
+category: "DESIGN-SYSTEM"
 slug: "introduction-design-system"
 illustration: "../images/posts/post_cards/feedback-for-web-design-mockups.jpg"
 ---

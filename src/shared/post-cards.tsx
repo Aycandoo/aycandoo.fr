@@ -4,7 +4,7 @@ import {
   ChevronRightIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import { sortBy, uniqBy } from 'lodash';
 import React, { useEffect, useState, type FC } from 'react';
 import { type MarkdownRemark } from '../models/markdown-remark';
@@ -12,6 +12,7 @@ import PostCard from './post-card';
 
 interface PostCardsParams {
   cards: MarkdownRemark[];
+  filters: string[];
 }
 
 interface Category {
@@ -19,7 +20,7 @@ interface Category {
   selected: boolean;
 }
 
-const PostCards: FC<PostCardsParams> = ({ cards }) => {
+const PostCards: FC<PostCardsParams> = ({ cards, filters = [] }) => {
   const [categories, setCategories] = useState<Category[]>([]);
   const [displayedCards, setDisplayedCards] = useState<MarkdownRemark[]>(cards);
   const [openedFilterZone, setOpenedFilterZone] = useState(false);
@@ -36,10 +37,22 @@ const PostCards: FC<PostCardsParams> = ({ cards }) => {
       'name'
     );
 
-    setCategories(filteredCategories);
-  }, [cards]);
+    if (filters && filters.length > 0) {
+      const upperCasedFilters = filters.map((f) => f.toUpperCase());
+      const updatedCategories = filteredCategories.map((category) => {
+        if (upperCasedFilters.includes(category.name)) {
+          category.selected = true;
+        }
+        return category;
+      });
+      setCategories(updatedCategories);
+      filterCardsByCategories(upperCasedFilters);
+    } else {
+      setCategories(filteredCategories);
+    }
+  }, [cards, filters]);
 
-  const selectCategory = (categoryToUpdate: string): void => {
+  const selectCategory = async (categoryToUpdate: string): Promise<void> => {
     const updatedCategories = categories.map((category) => {
       if (category.name === categoryToUpdate) {
         category.selected = !category.selected;
@@ -47,8 +60,18 @@ const PostCards: FC<PostCardsParams> = ({ cards }) => {
       return category;
     });
     setCategories(updatedCategories);
+
     const selectedCategoryNames = getSelectedCategoryNames();
     filterCardsByCategories(selectedCategoryNames);
+
+    if (categories.filter((c) => c.selected).length > 0) {
+      const queryParams = selectedCategoryNames
+        .map((c) => `filters=${c.toLowerCase()}`)
+        .join('&');
+      await navigate(`?${queryParams}`, { replace: true });
+    } else {
+      await navigate('', { replace: true });
+    }
   };
 
   const getSelectedCategoryNames = (): string[] => {
@@ -106,7 +129,7 @@ const PostCards: FC<PostCardsParams> = ({ cards }) => {
               <button
                 key={category.name}
                 type="button"
-                onClick={() => selectCategory(category.name)}
+                onClick={async () => await selectCategory(category.name)}
                 aria-pressed={category.selected}
                 className={
                   'flex flex-row gap-1 rounded p-2 ring-1 ' +

@@ -1,5 +1,6 @@
 import { graphql, type HeadFC, type HeadProps, type PageProps } from 'gatsby';
 import React, { type FC } from 'react';
+import { useQueryParams } from '../hooks/use-query-params';
 import { type MarkdownRemark } from '../models/markdown-remark';
 import PostCards from '../shared/post-cards';
 import Layout from '../structure/layout';
@@ -11,6 +12,7 @@ const Blog: FC<
     allMarkdownRemark: { edges: Array<{ node: MarkdownRemark }> };
   }>
 > = ({ data }) => {
+  const filters = useQueryParams('filters');
   const cards = data.allMarkdownRemark.edges.map((card) => card.node);
 
   return (
@@ -22,7 +24,7 @@ const Blog: FC<
             général. Retrouvez ici les articles qui ont été écrits par notre
             équipe.
           </p>
-          <PostCards cards={cards} />
+          <PostCards cards={cards} filters={filters} />
         </div>
       </Section>
     </Layout>
