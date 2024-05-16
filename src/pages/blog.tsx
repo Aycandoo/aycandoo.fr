@@ -1,27 +1,10 @@
-import { type HeadProps, graphql, type HeadFC, type PageProps } from 'gatsby';
+import { graphql, type HeadFC, type HeadProps, type PageProps } from 'gatsby';
 import React, { type FC } from 'react';
+import { type MarkdownRemark } from '../models/markdown-remark';
 import PostCards from '../shared/post-cards';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
 import Seo from '../structure/seo';
-
-export interface MarkdownRemark {
-  markdownRemark: any; // <-- TODO: to remove since later its a workaround
-  id: string;
-  html: string;
-  frontmatter: {
-    category: string;
-    date: string;
-    slug: string;
-    title: string;
-    illustration: {
-      childImageSharp: {
-        gatsbyImageData: any;
-      };
-    };
-  };
-  excerpt: string;
-}
 
 const Index: FC<
   PageProps<{

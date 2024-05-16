@@ -1,14 +1,14 @@
-import { Link } from 'gatsby';
-import React, { useEffect, useState, type FC } from 'react';
-import { sortBy, uniqBy } from 'lodash';
+import { Transition } from '@headlessui/react';
 import {
   ChevronDownIcon,
   ChevronRightIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
-import { type MarkdownRemark } from '../pages/blog';
+import { Link } from 'gatsby';
+import { sortBy, uniqBy } from 'lodash';
+import React, { useEffect, useState, type FC } from 'react';
+import { type MarkdownRemark } from '../models/markdown-remark';
 import PostCard from './post-card';
-import { Transition } from '@headlessui/react';
 
 interface PostCardsParams {
   cards: MarkdownRemark[];

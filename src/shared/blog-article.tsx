@@ -1,10 +1,10 @@
 import { type HeadFC, type HeadProps, graphql, navigate } from 'gatsby';
 import React, { type FC } from 'react';
-import { type MarkdownRemark } from '../pages/blog';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
 import Seo from '../structure/seo';
 import './blog-article.scss';
+import { type MarkdownRemark } from '../models/markdown-remark';
 
 export interface BlogArticleParams {
   data: {
