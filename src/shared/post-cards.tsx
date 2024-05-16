@@ -75,11 +75,11 @@ const PostCards: FC<PostCardsParams> = ({ cards }) => {
   };
 
   return (
-    <div className="flex flex-col gap-12 px-6 lg:px-36 xl:px-60 2xl:px-[25%]">
-      <div className="">
+    <>
+      <div>
         <button
           type="button"
-          className="mb-2"
+          className="mb-2 font-bold"
           aria-pressed={openedFilterZone}
           onClick={() => toggleFilterZone()}
         >
@@ -101,7 +101,7 @@ const PostCards: FC<PostCardsParams> = ({ cards }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="mt-2 flex flex-row flex-wrap gap-4">
+          <div className="mb-6 mt-2 flex flex-row flex-wrap gap-4">
             {categories.map((category) => (
               <button
                 key={category.name}
@@ -137,7 +137,7 @@ const PostCards: FC<PostCardsParams> = ({ cards }) => {
           </Link>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

@@ -32,8 +32,15 @@ const Index: FC<
 
   return (
     <Layout>
-      <Section title="Blog" id="blog" headingLevel={1}>
-        <PostCards cards={cards} />
+      <Section title="Le blog" id="blog" headingLevel={1}>
+        <div className="px-6 lg:px-36 xl:px-60 2xl:px-[25%]">
+          <p className="mb-12 mt-6 text-center">
+            Petits mémos ou grands articles, nous aimons écrire sur la tech en
+            général. Retrouvez ici les articles qui ont été écrits par notre
+            équipe.
+          </p>
+          <PostCards cards={cards} />
+        </div>
       </Section>
     </Layout>
   );
@@ -68,8 +75,10 @@ export default Index;
 
 export const Head: HeadFC = (props: HeadProps) => (
   <Seo
-    title="Blog"
-    description="Le blog"
+    title="Le blog"
+    description="Petits mémos ou grands articles, nous aimons écrire sur la tech en
+    général. Retrouvez ici les articles qui ont été écrits par notre
+    équipe."
     pathname={props.location.pathname}
   ></Seo>
 );
