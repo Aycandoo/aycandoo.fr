@@ -91,7 +91,7 @@ const PostCards: FC<PostCardsParams> = ({ cards, filters = [] }) => {
       .map((c) => `filters=${c.toLowerCase()}`)
       .join('&');
 
-    return `?${queryParams}`;
+    return queryParams ? `?${queryParams}` : '';
   };
 
   const getSelectedCategoryNames = (): string[] => {

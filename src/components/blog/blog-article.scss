@@ -36,12 +36,9 @@
   }
 
   a {
-    color: #ffdd57;
+    color: rgb(3 7 18);
     font-weight: 500;
-
-    &:hover {
-      text-decoration-line: underline;
-    }
+    text-decoration-line: underline;
   }
 
   table {

@@ -1,18 +1,23 @@
-import { type HeadFC, type HeadProps, graphql, navigate } from 'gatsby';
+import { ArrowLeftIcon } from '@heroicons/react/24/outline';
+import {
+  graphql,
+  navigate,
+  type HeadFC,
+  type HeadProps,
+  type PageProps,
+} from 'gatsby';
 import React, { type FC } from 'react';
+import { type MarkdownRemark } from '../../models/markdown-remark';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
 import Seo from '../structure/seo';
 import './blog-article.scss';
-import { type MarkdownRemark } from '../../models/markdown-remark';
 
 export interface BlogArticleParams {
-  data: {
-    markdownRemark: MarkdownRemark;
-  };
+  markdownRemark: MarkdownRemark;
 }
 
-const BlogArticle: FC<BlogArticleParams> = ({ data }) => {
+const BlogArticle: FC<PageProps<BlogArticleParams>> = ({ data, location }) => {
   const post = data.markdownRemark;
   const dateTimeFormat = new Intl.DateTimeFormat('fr', { dateStyle: 'long' });
   const formattedPostDate = dateTimeFormat.format(
@@ -28,7 +33,27 @@ const BlogArticle: FC<BlogArticleParams> = ({ data }) => {
           headingLevel={1}
           className="items-start"
         >
-          <header className="mb-12 w-full ">
+          <header className="mb-12 w-full">
+            <button
+              type="button"
+              onClick={() => {
+                void (location.state ? navigate(-1) : navigate('/blog'));
+              }}
+              className="color-primary mb-12 flex flex-row items-center gap-2 rounded bg-gray-950 px-4 py-2 text-sm font-bold hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-[#ffdd57] focus-visible:ring-offset-2"
+            >
+              {location.state != null && (
+                <>
+                  <ArrowLeftIcon className="h-5 w-5" />
+                  <span>Revenir en arrière</span>
+                </>
+              )}
+              {!location.state && (
+                <>
+                  <span>Aller à la page du blog</span>
+                </>
+              )}
+            </button>
+
             <div className="border-b-2 pb-4">
               <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900">
                 {post.frontmatter.title}
@@ -40,14 +65,6 @@ const BlogArticle: FC<BlogArticleParams> = ({ data }) => {
                 {formattedPostDate}
               </time>
             </div>
-            <button
-              onClick={() => {
-                void navigate(-1);
-              }}
-              className="color-primary mt-4 text-base font-bold hover:underline"
-            >
-              Revenir en arrière
-            </button>
           </header>
           <div
             className="w-full"
@@ -75,8 +92,8 @@ export const data = graphql`
 
 export default BlogArticle;
 
-export const Head: HeadFC<MarkdownRemark> = (
-  props: HeadProps<MarkdownRemark>
+export const Head: HeadFC<BlogArticleParams> = (
+  props: HeadProps<BlogArticleParams>
 ) => (
   <Seo
     title={props.data.markdownRemark.frontmatter.title}

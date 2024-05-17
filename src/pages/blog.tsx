@@ -42,7 +42,7 @@ export const query = graphql`
             date
             illustration {
               childImageSharp {
-                gatsbyImageData
+                gatsbyImageData(height: 400, quality: 100)
               }
             }
             slug
