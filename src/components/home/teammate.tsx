@@ -23,7 +23,7 @@ const Teammate: FC<TeammateParams> = ({
         <div className="flex items-center justify-between">
           <p className="text-center text-2xl font-semibold sm:text-left">
             {name}
-            <span className="px-2 text-[#ffdd57]">|</span>
+            <span className="px-2 text-primary">|</span>
             <span className="text-xl">{role}</span>
           </p>
           <OutboundLink href={linkedinProfile}>

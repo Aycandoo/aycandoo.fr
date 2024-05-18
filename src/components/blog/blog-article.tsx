@@ -39,7 +39,7 @@ const BlogArticle: FC<PageProps<BlogArticleParams>> = ({ data, location }) => {
               onClick={() => {
                 void (location.state ? navigate(-1) : navigate('/blog'));
               }}
-              className="color-primary mb-12 flex flex-row items-center gap-2 rounded bg-gray-950 px-4 py-2 text-sm font-bold hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-[#ffdd57] focus-visible:ring-offset-2"
+              className="color-primary mb-12 flex flex-row items-center gap-2 rounded bg-gray-950 px-4 py-2 text-sm font-bold hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
               {location.state != null && (
                 <>

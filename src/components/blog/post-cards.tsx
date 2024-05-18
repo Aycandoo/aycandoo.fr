@@ -149,9 +149,7 @@ const PostCards: FC<PostCardsParams> = ({ cards, filters = [] }) => {
                 aria-pressed={category.selected}
                 className={
                   'flex flex-row gap-1 rounded p-2 ring-1 ' +
-                  (category.selected
-                    ? 'ring-2 ring-[#ffdd57]'
-                    : 'ring-gray-500')
+                  (category.selected ? 'ring-2 ring-primary' : 'ring-gray-500')
                 }
               >
                 <span>{category.name}</span>
