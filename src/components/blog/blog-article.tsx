@@ -13,6 +13,7 @@ import Section from '../structure/section';
 import Seo from '../structure/seo';
 import './blog-article.scss';
 import { twMerge } from 'tailwind-merge';
+import Button from '../shared/button';
 
 export interface BlogArticleParams {
   markdownRemark: MarkdownRemark;
@@ -32,25 +33,22 @@ const BlogArticle: FC<PageProps<BlogArticleParams>> = ({ data, location }) => {
     state: any;
     className?: string;
   }): ReactNode => (
-    <button
+    <Button
       type="button"
+      className={twMerge('text-sm', className)}
       onClick={() => {
         void (state ? navigate(-1) : navigate('/blog'));
       }}
-      className={twMerge(
-        'flex flex-row items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold drop-shadow-md hover:ring-2 hover:ring-black',
-        className
-      )}
     >
       {!state ? (
         <span>Aller à la page du blog</span>
       ) : (
-        <>
+        <div className="flex flex-row items-center justify-center gap-2">
           <ArrowLeftIcon className="h-4 w-4" />
           <span>Revenir en arrière</span>
-        </>
+        </div>
       )}
-    </button>
+    </Button>
   );
 
   return (
