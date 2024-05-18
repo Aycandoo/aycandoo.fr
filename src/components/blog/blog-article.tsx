@@ -6,12 +6,13 @@ import {
   type HeadProps,
   type PageProps,
 } from 'gatsby';
-import React, { type FC } from 'react';
+import React, { type ReactNode, type FC } from 'react';
 import { type MarkdownRemark } from '../../models/markdown-remark';
 import Layout from '../structure/layout';
 import Section from '../structure/section';
 import Seo from '../structure/seo';
 import './blog-article.scss';
+import { twMerge } from 'tailwind-merge';
 
 export interface BlogArticleParams {
   markdownRemark: MarkdownRemark;
@@ -24,6 +25,34 @@ const BlogArticle: FC<PageProps<BlogArticleParams>> = ({ data, location }) => {
     new Date(post.frontmatter.date)
   );
 
+  const GoBackButton = ({
+    state,
+    className,
+  }: {
+    state: any;
+    className?: string;
+  }): ReactNode => (
+    <button
+      type="button"
+      onClick={() => {
+        void (state ? navigate(-1) : navigate('/blog'));
+      }}
+      className={twMerge(
+        'flex flex-row items-center justify-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-semibold drop-shadow-md hover:ring-2 hover:ring-black',
+        className
+      )}
+    >
+      {!state ? (
+        <span>Aller à la page du blog</span>
+      ) : (
+        <>
+          <ArrowLeftIcon className="h-4 w-4" />
+          <span>Revenir en arrière</span>
+        </>
+      )}
+    </button>
+  );
+
   return (
     <Layout>
       <article className="blog-article m-auto max-w-6xl text-gray-700">
@@ -33,27 +62,8 @@ const BlogArticle: FC<PageProps<BlogArticleParams>> = ({ data, location }) => {
           headingLevel={1}
           className="items-start"
         >
+          <GoBackButton className="mb-12" state={location.state} />
           <header className="mb-12 w-full">
-            <button
-              type="button"
-              onClick={() => {
-                void (location.state ? navigate(-1) : navigate('/blog'));
-              }}
-              className="color-primary mb-12 flex flex-row items-center gap-2 rounded bg-gray-950 px-4 py-2 text-sm font-bold hover:bg-gray-700 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
-            >
-              {location.state != null && (
-                <>
-                  <ArrowLeftIcon className="h-5 w-5" />
-                  <span>Revenir en arrière</span>
-                </>
-              )}
-              {!location.state && (
-                <>
-                  <span>Aller à la page du blog</span>
-                </>
-              )}
-            </button>
-
             <div className="border-b-2 pb-4">
               <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900">
                 {post.frontmatter.title}
@@ -70,6 +80,7 @@ const BlogArticle: FC<PageProps<BlogArticleParams>> = ({ data, location }) => {
             className="w-full"
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
+          <GoBackButton className="mt-12" state={location.state} />
         </Section>
       </article>
     </Layout>
