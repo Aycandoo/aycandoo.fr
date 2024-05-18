@@ -40,6 +40,7 @@ const PostCards: FC<PostCardsParams> = ({ cards, filters = [] }) => {
     if (filters && filters.length > 0) {
       const updatedCategories = applyFilters(filteredCategories, filters);
       setCategories(updatedCategories);
+      setOpenedFilterZone(true);
     } else {
       setCategories(filteredCategories);
     }
