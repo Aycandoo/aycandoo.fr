@@ -1,6 +1,6 @@
 import React, { type FC, type PropsWithChildren } from 'react';
-import Header from './header';
 import Footer from './footer';
+import Header from './header';
 import './layout.scss';
 
 export type LayoutParams = PropsWithChildren<{
@@ -10,8 +10,13 @@ export type LayoutParams = PropsWithChildren<{
 const Layout: FC<LayoutParams> = ({ children }) => {
   return (
     <>
+      <a href="#main" className="skip-link">
+        Aller au contenu principal
+      </a>
       <Header></Header>
-      <main>{children}</main>
+      <main tabIndex={-1} id="main">
+        {children}
+      </main>
       <Footer></Footer>
     </>
   );
