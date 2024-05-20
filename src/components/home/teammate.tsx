@@ -26,7 +26,7 @@ const Teammate: FC<TeammateParams> = ({
             <span className="px-2 text-primary">|</span>
             <span className="text-xl">{role}</span>
           </p>
-          <OutboundLink href={linkedinProfile}>
+          <OutboundLink href={linkedinProfile} className="hover:opacity-70">
             <StaticImage
               height={25}
               src="../../images/linkedin-logo.png"
