@@ -58,10 +58,9 @@ const PostCards: FC<PostCardsParams> = ({ cards, filters = [] }) => {
       }
       return category;
     });
-    setCategories(updatedCategories);
 
     if (categories.filter((c) => c.selected).length > 0) {
-      await navigate(getSelectedCategoriesAsQueryParams(categories), {
+      await navigate(getSelectedCategoriesAsQueryParams(updatedCategories), {
         replace: true,
       });
     } else {

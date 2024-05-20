@@ -1,7 +1,7 @@
 ---
 title: "DNS: que se passe-t-il sous le capot de ma requête web ?"
 date: "2021-04-24"
-category: "RÉSEAU"
+category: "RESEAU"
 slug: "fonctionnement-dns"
 illustration: "../images/posts/post_cards/desk-setup-with-motivational-poster.jpg"
 ---

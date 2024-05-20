@@ -3,11 +3,7 @@ import Footer from './footer';
 import Header from './header';
 import './layout.scss';
 
-export type LayoutParams = PropsWithChildren<{
-  headingLevel?: number;
-}>;
-
-const Layout: FC<LayoutParams> = ({ children }) => {
+const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <>
       <a href="#main" className="skip-link">
