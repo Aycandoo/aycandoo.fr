@@ -8,7 +8,7 @@ const Team: FC = () => {
       <Teammate
         name="Jérémy Brochard"
         description="Développeur full stack polyvalent depuis 2015, il a accumulé une riche expérience en travaillant chez des clients renommés tels que la Société Générale et LexisNexis. Son expertise réside principalement dans le développement frontend, particulièrement sur Angular. Certifié Opquast, il accorde une attention particulière à l'accessibilité pour garantir des solutions inclusives. En dehors de son travail, il nourrit une passion pour le gaming, qui stimule sa créativité et sa curiosité technologique."
-        role="Président"
+        role="CEO"
         linkedinProfile="https://www.linkedin.com/in/jeremy-brochard"
       >
         <StaticImage
