@@ -5,29 +5,22 @@ import {
   Transition,
 } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import React, { type FC, useState } from 'react';
+import React, { useState, type FC } from 'react';
+import { useSiteMetadata } from '../../hooks/use-site-metadata';
 
 const navigation = [
   { name: 'Accueil', to: '/' },
   { name: 'Services', to: '/#offerings' },
   { name: "L'équipe", to: '/#team' },
-  { name: 'Blog', to: '/blog' },
-  { name: 'Contact', to: '/contact' },
+  { name: 'Blog', to: '/blog/' },
+  { name: 'Contact', to: '/contact/' },
 ];
 
 const Header: FC = () => {
+  const { title } = useSiteMetadata();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
 
   return (
     <header
@@ -49,14 +42,14 @@ const Header: FC = () => {
                 src="../../images/aycandoo-color-logo.svg"
                 alt=""
               />
-              <span className="sr-only">{data?.site?.siteMetadata?.title}</span>
+              <span className="sr-only">{title}</span>
             </div>
           </Link>
         </div>
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
             onClick={() => {
               setIsMobileMenuOpen(true);
             }}
@@ -71,6 +64,16 @@ const Header: FC = () => {
               key={name}
               to={to}
               className="text-sm font-semibold leading-6 text-white"
+              getProps={({ location, isPartiallyCurrent }) => {
+                const { pathname, hash } = location;
+                return `${pathname}${hash}` === to ||
+                  (isPartiallyCurrent && to === '/blog/')
+                  ? {
+                      className:
+                        'text-sm font-semibold leading-6 color-primary underline underline-offset-8',
+                    }
+                  : {};
+              }}
             >
               {name}
             </Link>
@@ -103,9 +106,7 @@ const Header: FC = () => {
                     src="../../images/aycandoo-black-logo.svg"
                     alt=""
                   />
-                  <span className="sr-only">
-                    {data?.site?.siteMetadata?.title}
-                  </span>
+                  <span className="sr-only">{title}</span>
                 </Link>
                 <button
                   type="button"
@@ -130,6 +131,16 @@ const Header: FC = () => {
                       key={name}
                       to={to}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      getProps={({ location, isPartiallyCurrent }) => {
+                        const { pathname, hash } = location;
+                        return `${pathname}${hash}` === to ||
+                          (isPartiallyCurrent && to === '/blog/')
+                          ? {
+                              className:
+                                '-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 underline underline-offset-8',
+                            }
+                          : {};
+                      }}
                     >
                       {name}
                     </Link>

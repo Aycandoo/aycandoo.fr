@@ -20,6 +20,7 @@ import {
   validateNonEmptyField,
   validateRecaptcha,
 } from '../utils/validators';
+import Button from '../components/shared/button';
 
 const EMPTY_FORM_STATE: ContactForm = {
   firstname: '',
@@ -205,7 +206,7 @@ const Contact: FC = () => {
               >
                 <input
                   ref={firstnameRef}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#ffdd57] sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                   type="text"
                   id={firstNameId}
                   name="firstname"
@@ -229,7 +230,7 @@ const Contact: FC = () => {
               >
                 <input
                   ref={lastnameRef}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#ffdd57] sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                   type="text"
                   id={lastNameId}
                   name="lastname"
@@ -253,7 +254,7 @@ const Contact: FC = () => {
               >
                 <input
                   ref={emailRef}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#ffdd57] sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                   type="email"
                   id={emailId}
                   name="email"
@@ -277,7 +278,7 @@ const Contact: FC = () => {
               >
                 <textarea
                   ref={messageRef}
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#ffdd57] sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-primary sm:text-sm sm:leading-6"
                   id={messageId}
                   name="message"
                   rows={3}
@@ -300,21 +301,22 @@ const Contact: FC = () => {
                 onChange={onRecaptchaValueChange}
               />
             </ErrorContainer>
-            <button
-              className="mt-2 flex w-48 justify-center gap-4 rounded-md bg-[#ffdd57] py-2 font-semibold drop-shadow-md hover:ring-2 hover:ring-black disabled:opacity-50 disabled:ring-0"
+            <Button
               type="submit"
               disabled={isFormBeingProcessed}
+              className="mt-2 flex w-48 flex-row justify-center gap-4 disabled:opacity-50 disabled:ring-0"
             >
-              {isFormBeingProcessed && (
+              {isFormBeingProcessed ? (
                 <>
                   <div className="h-6 w-6 animate-spin rounded-full border-2 border-t-2 border-black border-t-white"></div>
                   <p aria-atomic="true" aria-live="assertive">
                     Envoi en cours
                   </p>
                 </>
+              ) : (
+                <p>Envoyer</p>
               )}
-              {!isFormBeingProcessed && <p>Envoyer</p>}
-            </button>
+            </Button>
           </div>
         </form>
         {isMessageDisplayed && isFormSuccess && (

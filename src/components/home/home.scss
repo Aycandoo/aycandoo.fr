@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 :root {
   --repetitions: 2;
   --elements: 6;
@@ -16,7 +18,7 @@
   overflow: hidden;
   height: calc(var(--height) * 1px);
   text-align: start;
-  color: #ffdd57;
+  color: $primary-color;
 
   ul {
     animation: move calc(var(--speed) * var(--elements)) steps(var(--elements))
