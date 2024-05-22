@@ -1,4 +1,5 @@
 import React, { type FC, type PropsWithChildren, type ReactNode } from 'react';
+import './offering.scss';
 
 type OfferingParams = PropsWithChildren<{
   icon: ReactNode;
@@ -7,13 +8,13 @@ type OfferingParams = PropsWithChildren<{
 
 const Offering: FC<OfferingParams> = ({ icon, title, children }) => {
   return (
-    <li>
+    <li className="offering">
       <div className="flex flex-col items-center gap-4">
         <div className="flex flex-col items-center">
           {icon}
           <h3 className="text-xl font-bold">{title}</h3>
         </div>
-        <p className="text-justify text-gray-700">{children}</p>
+        <p className="text-gray-700">{children}</p>
       </div>
     </li>
   );

@@ -1,0 +1,7 @@
+.offering p {
+  text-align: center;
+
+  @media (min-width: 980px) {
+    text-align: justify;
+  }
+}
