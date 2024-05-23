@@ -9,7 +9,7 @@ require('dotenv').config({
 const config: GatsbyConfig = {
   siteMetadata: {
     title: 'Aycandoo.fr',
-    image: '/images/icon.png',
+    image: '/images/icon.svg',
     siteUrl: 'https://aycandoo.fr',
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
@@ -30,19 +30,7 @@ const config: GatsbyConfig = {
         background_color: `#f7f0eb`,
         theme_color: `#f4de71`,
         display: `standalone`,
-        icon: `src/images/icon.png`,
-        icons: [
-          {
-            src: `src/images/favicons/android-icon.png`,
-            sizes: `196x196`,
-            type: `image/png`,
-          },
-          {
-            src: `src/images/favicons/iphone-icon.png`,
-            sizes: `180x180`,
-            type: `image/png`,
-          },
-        ],
+        icon: `src/images/icon.svg`,
       },
     },
     {

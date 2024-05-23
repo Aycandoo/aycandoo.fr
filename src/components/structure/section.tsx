@@ -21,7 +21,7 @@ const Section: FC<SectionParams> = ({
   children,
 }) => {
   const [classList, setClassList] = useState(
-    'flex flex-col w-full scroll-mt-20 items-center gap-4 px-6 pt-12 pb-8 mb-48 lg:px-16 2xl:px-32'
+    'flex flex-col w-full scroll-mt-20 items-center gap-4 px-6 pt-12 pb-8 mb-24 lg:mb-48 lg:px-16 2xl:px-32'
   );
 
   useEffect(() => {
