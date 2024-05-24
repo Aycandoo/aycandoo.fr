@@ -53,8 +53,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown-pages`,
-        path: path.join(__dirname, 'src', 'assets'),
+        name: `blog-articles`,
+        path: path.join(__dirname, 'src', 'blog-articles'),
       },
     },
     {
