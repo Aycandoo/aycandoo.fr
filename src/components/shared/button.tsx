@@ -23,7 +23,7 @@ const Button: FC<ButtonParams> = ({
   children,
 }) => {
   const defaultStyles =
-    'rounded-md bg-primary px-4 py-2 font-semibold drop-shadow-md hover:ring-2 hover:ring-black';
+    'rounded-md bg-primary px-4 py-2 font-semibold drop-shadow-lg hover:bg-[#ffcd09]';
   const [classList, setClassList] = useState(defaultStyles);
 
   useEffect(() => {
