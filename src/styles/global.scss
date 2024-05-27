@@ -1,28 +1,9 @@
+@use 'colors';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import 'colors';
-
 .color-primary {
-  color: $primary-color;
-}
-
-.skip-link {
-  padding: 0.5rem;
-  position: absolute;
-  top: -40px;
-  left: 0px;
-  border-color: white;
-  background: $primary-color;
-  transition: top 1s ease-out;
-  z-index: 100;
-
-  &:focus {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    outline-color: transparent;
-    transition: top 0.1s ease-in;
-  }
+  color: colors.$primary-color;
 }

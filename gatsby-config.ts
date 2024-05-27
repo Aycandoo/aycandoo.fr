@@ -31,6 +31,9 @@ const config: GatsbyConfig = {
         theme_color: `#f4de71`,
         display: `standalone`,
         icon: `src/images/icon.svg`,
+        icon_options: {
+          purpose: `any maskable`,
+        },
       },
     },
     {
@@ -50,8 +53,8 @@ const config: GatsbyConfig = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown-pages`,
-        path: path.join(__dirname, 'src', 'assets'),
+        name: `blog-articles`,
+        path: path.join(__dirname, 'src', 'blog-articles'),
       },
     },
     {

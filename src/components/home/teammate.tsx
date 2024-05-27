@@ -1,8 +1,7 @@
+import { GlobeAltIcon } from '@heroicons/react/16/solid';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import { StaticImage } from 'gatsby-plugin-image';
 import React, { type FC, type PropsWithChildren } from 'react';
-import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import { CodeBracketIcon } from '@heroicons/react/24/outline';
-import { GlobeAltIcon } from '@heroicons/react/16/solid';
 
 type TeammateParams = PropsWithChildren<{
   name: string;
@@ -27,18 +26,19 @@ const Teammate: FC<TeammateParams> = ({
         <div className="flex items-center justify-between">
           <p className="text-center text-2xl font-semibold sm:text-left">
             {name}
-            <span className="text-primary px-2">|</span>
+            <span className="px-2 text-primary">|</span>
             <span className="text-xl">{role}</span>
           </p>
-          <div className="flex flex-row gap-2 items-center">
+          <div className="flex flex-row items-center gap-2">
             {website && (
               <OutboundLink
                 href={website}
                 className="hover:opacity-70"
                 target="_blank"
                 rel="noopener"
+                aria-label={`Aller sur le site personel de ${name}`}
               >
-                <GlobeAltIcon className="h-7 w-7 text-[#3B68AD] hover:opacity-70" />
+                <GlobeAltIcon className="h-7 w-7 text-[#3B68AD]" />
               </OutboundLink>
             )}
             <OutboundLink
@@ -50,7 +50,7 @@ const Teammate: FC<TeammateParams> = ({
               <StaticImage
                 height={25}
                 src="../../images/linkedin-logo.png"
-                alt="linkedin-link"
+                alt={`Aller sur le profil linkedin de ${name}`}
               />
             </OutboundLink>
           </div>
