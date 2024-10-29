@@ -3,7 +3,7 @@ import {
   CodeBracketIcon,
   Square3Stack3DIcon,
 } from '@heroicons/react/24/outline';
-import React, { type FC } from 'react';
+import React, { useEffect, useState, type FC } from 'react';
 import Section from '../structure/section';
 import './home.scss';
 import Offering from './offering';
@@ -11,6 +11,22 @@ import OfferingsList from './offerings-list';
 import Team from './team';
 
 const Home: FC = () => {
+  const [pauseClass, setPauseClass] = useState('');
+
+  const pauseAnimation = (): void => {
+    setPauseClass('pause ');
+  };
+
+  const resumeAnimation = (): void => {
+    setPauseClass('');
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      pauseAnimation();
+    }, 18000);
+  }, []);
+
   return (
     <div className="flex flex-col pt-20">
       <div className="relative isolate mb-48 px-6 lg:px-8">
@@ -33,7 +49,7 @@ const Home: FC = () => {
                 <span>
                   AYCANDOO<span aria-hidden="true">*</span>
                 </span>
-                <div className="carousel-container pr-6 md:ml-4">
+                <div className={pauseClass + 'carousel-container pr-6 md:ml-4'}>
                   <ul>
                     <li>web apps</li>
                     <li>mobile apps</li>
@@ -56,6 +72,39 @@ const Home: FC = () => {
               votre site web sur mesure, notre équipe vous accompagne à chaque
               étape de votre projet.
             </p>
+          </div>
+          <div className="my-4 flex items-center justify-end">
+            {!pauseClass ? (
+              <button
+                onClick={pauseAnimation}
+                aria-label="Mettre en pause l'animation"
+                className="hover:ring-1 hover:ring-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  className="mx-1 my-0 h-6 w-6"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2m6.25-7C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5m3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5" />
+                </svg>
+              </button>
+            ) : (
+              <button
+                onClick={resumeAnimation}
+                aria-label="Lire l'animation"
+                className="hover:ring-1 hover:ring-primary"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  className="mx-1 my-0 h-6 w-6"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2m6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814z" />
+                </svg>
+              </button>
+            )}
           </div>
         </div>
         <div
