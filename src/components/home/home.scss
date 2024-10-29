@@ -1,13 +1,11 @@
 @use '../../styles/colors.scss';
 
 :root {
-  --repetitions: 2;
   --elements: 6;
   --height: 120;
   --speed: 1.5s;
 
   @media (max-width: 1024px) {
-    --repetitions: 2;
     --elements: 6;
     --height: 75;
     --speed: 1.5s;
@@ -21,13 +19,22 @@
   color: colors.$primary-color;
 
   ul {
-    animation: move calc(var(--speed) * var(--elements)) steps(var(--elements))
-      var(--repetitions);
+    animation: move calc(var(--speed) * var(--elements)) steps(var(--elements)) infinite;
   }
 
   ul li {
-    animation: liMove calc(var(--speed))
-      calc(var(--elements) * var(--repetitions));
+    animation: liMove calc(var(--speed)) infinite;
+  }
+
+  &.pause {
+
+    ul {
+      animation-play-state: paused !important;
+    }
+
+    ul li {
+      animation-play-state: paused !important;
+    }
   }
 }
 
